@@ -27,6 +27,7 @@ class Marks(models.Model):
     computer=models.IntegerField()
     avg = models.FloatField(null=True, blank=True)
     total=models.IntegerField(blank=True, null=True)
+    percent = models.FloatField(null=True, blank=True)
 
     def __int__(self):
         return self.roll

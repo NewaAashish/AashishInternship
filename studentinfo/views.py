@@ -69,7 +69,7 @@ class Info_DeleteView(DeleteView):
     template_name = 'deleteform.html'
 
 
-class Info_FormView(FormView):
+class Info_FormView(LoginRequiredMixin, FormView):
     template_name = 'add.html'
     form_class = InfoForm
     success_url = reverse_lazy('index')
@@ -105,6 +105,7 @@ class Marks_MarksView(FormView):
         marks.student = Info.objects.get(id=self.kwargs['student_id'])
         marks.total = marks.english + marks.science + marks.maths + marks.nepali + marks.computer
         marks.avg = marks.total/5
+        marks.percent = (marks.total/500)*100
         marks.save()
         return super(Marks_MarksView, self).form_valid(form)
 
@@ -135,7 +136,7 @@ class Marks_UpdateView(UpdateView):
 
 
 class Home(TemplateView):
-    template_name = 'contact-us.html'
+    template_name = 'contact.html'
 
 # class Search_View(TemplateView):
 #     template_name = 'autocomplete.html'
