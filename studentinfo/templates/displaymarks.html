@@ -1,0 +1,48 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<h1 class="text-center"><b>List of Marks</b></h1>
+<div class="container mar">
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th>Roll</th>
+                        <th>Name</th>
+                        <th>English</th>
+                        <th>Science</th>
+                        <th>Maths</th>
+                        <th>Nepali</th>
+                        <th>Computer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ displaymarks.roll }} </td>
+                        <td>{{ displaymarks.name }}</td>
+                        <td>{{ displaymarks.english }}</td>
+                        <td>{{ displaymarks.science }}</td>
+                        <td>{{ displaymarks.maths}}</td>
+                        <td>{{ displaymarks.nepali }}</td>
+                        <td>{{ displaymarks.computer }}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <div>
+                <div>
+                    <a href="{% url 'updatemarks' displaymarks.pk %}">
+                        <button class="btn btn-primary button-add">Update</button></a>
+                </div>
+            </div>
+            <div class="row p-3">
+                <a href="{% url 'index' %}">
+                    <button class="btn btn-primary btn-md">Back to Home</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

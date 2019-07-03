@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1>STUDENT INFORMATION LIST</h1>
+    <h4>ROLL NO:</h4>
+    <!-- Student List Start -->
+    <div class="row justify-content-start mar">
+        <ul style="list-style-type:none;">
+            {% for i in markslist %}
+            <li>
+                <table>
+                    <tr>
+                        <td style="width: 250px;">
+                            <a href="{% url 'display-marks' i.pk %}"> <u><b>{{ i.roll }}</b></u> </a>
+                        </td>
+
+                    </tr>
+                </table>
+            </li>
+
+            
+            {% endfor %}
+        </ul>
+        
+    </div>
+</div>
+<div class="back-btn">
+        <a href="{{request.META.HTTP_REFERER}}" >
+                <button class="btn btn-dark btn-md">Go back</button>
+                </a>
+</div>
+
+{% endblock %}

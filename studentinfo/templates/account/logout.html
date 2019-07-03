@@ -1,0 +1,15 @@
+{% extends "base.html" %} 
+
+{% load bootstrap4 %} 
+
+{% block content %}
+<div class="container text-center">
+    <p class="text-center" style="margin: 3%;"><h1>Are you sure you want to log out?</h1></p>
+    <form method="POST" action="{% url 'account_logout' %}" autocapitalize="off" class="reg-page" novalidate>
+        {% csrf_token %} 
+        <button type="submit" class="btn btn-danger btn-center">Confirm
+        </button>
+    </form>
+</div>
+    
+{% endblock %}

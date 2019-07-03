@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load bootstrap4 %}
+
+
+
+{% block content %}
+<div>
+        <h1 class="fre">Input New Student Information:</h1>
+    </div>
+<div class="container mar">
+   
+<form action=""  enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <!-- {{ form.as_p }} -->
+        {% bootstrap_field form.name_text show_label=False field_class="col-5" %}
+        {% bootstrap_field form.batch_no show_label=False field_class="col-5" %}
+        {% bootstrap_field form.faculty show_label=False field_class="col-5" %}
+        {% bootstrap_field form.contact show_label=False field_class="col-5" %}
+        {% bootstrap_field form.image show_label=False field_class="col-5" %}
+        
+
+        <br>
+        <div class=" row back-btn">
+            <!-- <input type="submit" value="Submit" /> -->
+            {% bootstrap_button "Save" button_type="submit" button_class="btn-primary btn-lg " %}
+        </div>            
+    </form>
+    <a href="{{request.META.HTTP_REFERER}}" >
+            <button class="btn btn-dark btn-md back-btn">Go back</button>
+            </a>
+</div>
+{% endblock %}

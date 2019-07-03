@@ -1,0 +1,47 @@
+{% extends "base.html" %} 
+{% load bootstrap4 %} 
+{% load static %}
+
+{% block content %}
+<!-- Login -->
+<section class="g-bg-gray-light-v5">
+    <div class="container g-py-100">
+        <div class="row justify-content-center">
+            <div class="col-sm-8 col-lg-5 g-bg-white">
+                <div class="u-shadow-v21 rounded g-py-40">
+                    <header class="text-center mb-4">
+                        <h2 class="h2 g-color-black g-font-weight-600 fre"> Login to your account or Create one for free </h2>
+                    </header>
+                    <!-- Form -->
+                    <form method="POST" action="" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %} class="g-py-15" novalidate>
+                         {% csrf_token %}
+                        <div class="mb-4">
+                            <!-- {% bootstrap_field form.username show_label=True %} -->
+                            {% bootstrap_field form.username show_label=False  %}
+                    
+                        </div>
+                        <div class="g-mb-35">
+                            <!-- {% bootstrap_field form.password show_label=True %} -->
+                            {% bootstrap_field form.password show_label=False  %}
+
+                            <div class="row justify-content-between">
+                                <div class="col align-self-center text-left">
+                                    <a class="g-font-size-12" href="{% url 'account_password_reset' %}">Forgot password?</a> <br> <br>
+                                </div>
+                            </div>
+                        </div>
+                        
+                      <input type="submit" value="Submit" class="btn btn-primary">
+                    </form>
+                    <!-- End Form -->
+                    <footer class="text-center">
+                        <p class="g-font-size-13 mb-0">Don't have an account? <a class="g-font-weight-600" href="{% url 'account_signup' %}">Sign up</a>
+                        </p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Login -->
+{% endblock %} 

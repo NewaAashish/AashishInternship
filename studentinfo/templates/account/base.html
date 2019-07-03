@@ -1,0 +1,89 @@
+{% load bootstrap4 %} 
+
+{% load account_tags %}
+<p style="float:right;"><i class="fa fa-user"></i> {% user_display request.user %}</p>
+{% load static %}
+<html>
+<head>
+    <title>
+    
+    </title>
+
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'custom.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'font-awesome.min.css' %}" rel="stylesheet" type="text/css"> 
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"> 
+   
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- <a href="{% url 'index' %}"><img src="{% static 'img/logo1.png' %}" class="img-responsive"></a> -->
+            <div class="top">
+                    
+                <ul class="top-menu">
+                    
+                    <!-- <li><a href="{% url 'account_login' %}"><button class="btn btn-default orange">Login</button></a></li>
+                    <li><a href="{% url 'account_signup' %}"><button class="btn btn-default pink">Signup</button></a></li>
+                    <li>Features</li>
+                    <li>Blog</li>
+                    <li><i class="fa fa-facebook"></i></li>
+                    <li><i class="fa fa-twitter"></i></li>
+                    <li><i class="fa fa-google"></i></li> -->
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 box">
+                {% block content %}
+                <div class="container g-py-70">
+                    <div class="center-block g-width-485 u-shadow-v1-5 g-line-height-2">
+                        <h3 class="text-white g-bg-primary g-px-20 g-py-15">
+                            {% block account_title %}
+                                <!-- head block -->
+                            {% endblock account_title %}
+                        </h3>
+                        <div class="g-pa-40">
+                            {% block account_content %}
+                                <!-- body block -->
+                            {% endblock account_content %}
+                        </div>
+                    </div>
+                </div>
+            {% endblock content %}
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </section>
+
+    
+<footer>
+    <div class="container">
+        <p class="text-center">&copy; Copyright TimeLogger 2019</p>
+        <hr>
+        <p class="text-center"><a href="#">Terms and Condition</a>  |   <a href="#">Privacy Policy</a></p>
+    </div>
+</footer>
+
+{% block extra_script %} 
+    <script type="text/javascript">
+        $(".wrapper").addClass("g-bg-gray-light-v5 g-pt-30")
+    </script>
+{% endblock %}
+
+</body>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+$('#myTabs a').click(function (e) {
+e.preventDefault()
+$(this).tab('show')
+})
+</script>
+
+</html>

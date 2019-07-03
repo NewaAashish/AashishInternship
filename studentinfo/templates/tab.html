@@ -1,0 +1,211 @@
+{% load static %}
+{% load bootstrap4 %}
+<!-- {% block extends_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'tab.css' %}" />
+
+{% endblock extends_css %} -->
+
+
+
+
+
+<hr>
+</hr>
+<div class="container">
+    <h4 class="fre">Terminal Marks</h4>
+</div>
+
+<div id="exTab2" class="container ">
+    <ul class="nav nav-tabs">
+        <li class="active flex-fill">
+            <a class="btn btn-dark " href="#1" data-toggle="tab">First Terminal</a>
+        </li>
+        <li class="flex-fill"><a class="btn btn-dark" href="#2" data-toggle="tab">Second Terminal</a>
+        </li>
+        <li class="flex-fill"><a class="btn btn-dark" href="#3" data-toggle="tab">Third Terminal</a>
+        </li>
+    </ul>
+
+    <div class="tab-content ">
+        <div class="tab-pane active" id="1">
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <td> <u>First Term</u></td>
+                        <td><a class="btn btn-primary button-add" href="{% url 'updatemarks' first_term.pk %}">
+                                Update Marks</a></td>
+
+                    </tr>
+                    <tr>
+                        <th class="col-3">Subject</th>
+                        <th class="col-3">Marks</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>English</td>
+                        <td>{{ first_term.english }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Science</td>
+                        <td>{{ first_term.science }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Maths</td>
+                        <td>{{ first_term.maths }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Nepali</td>
+                        <td>{{ first_term.nepali }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Computer</td>
+                        <td>{{ first_term.computer }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td>{{ first_term.total }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Average</td>
+                        <td>{{ first_term.avg }}</td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane" id="2">
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <td><u>Second Term</u> </td>
+                        {% if second_term %}
+                        <td><a class="btn btn-primary button-add" href="{% url 'updatemarks' second_term.pk %}">
+                                Update Marks</a></td>
+
+                        {% endif %}
+
+                    </tr>
+                    <tr>
+                        <th class="col-3">Subject</th>
+                        <th class="col-3">Marks</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>English</td>
+                        <td>{{ second_term.english }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Science</td>
+                        <td>{{ second_term.science }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Maths</td>
+                        <td>{{ second_term.maths }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Nepali</td>
+                        <td>{{ second_term.nepali }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Computer</td>
+                        <td>{{ second_term.computer }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td>{{ second_term.total }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Average</td>
+                        <td>{{ second_term.avg }}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane" id="3">
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <td><u>Third Term</u> </td>
+                        {% if third_term %}
+                        <td><a class="btn btn-primary button-add" href="{% url 'updatemarks' third_term.pk %}">
+                                Update Marks</a></td>
+                        {% endif %}
+
+                    </tr>
+                    <tr>
+                        <th class="col-3">Subject</th>
+                        <th class="col-3">Marks</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>English</td>
+                        <td>{{ third_term.english }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Science</td>
+                        <td>{{ third_term.science }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Maths</td>
+                        <td>{{ third_term.maths }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Nepali</td>
+                        <td>{{ third_term.nepali }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Computer</td>
+                        <td>{{ third_term.computer }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td>{{ third_term.total }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Average</td>
+                        <td>{{ third_term.avg }}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<hr>
+</hr>
+
+
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

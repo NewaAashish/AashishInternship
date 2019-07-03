@@ -1,0 +1,40 @@
+.navbar {
+    margin-top:0; }
+.mar{
+    margin-top: 3%;
+}
+li a b{
+    font-weight: bold;
+    font-size: 28px;
+}
+body{
+    background-image: url('images/bg.png');
+
+}
+
+.add button a{
+    color: white;
+    font-weight: normal;
+}
+h1{
+    
+    left: 45vh;
+    margin: 3%;
+    margin-left: 5%;
+}
+.button-add
+{
+    margin: 5px;
+    margin-left: 25px;
+}
+.back-btn{
+    margin: 5px;
+    margin-left: 15px;
+}
+.dance{
+    font-family: 'Courgette', cursive;
+
+}
+.fre{
+    font-family: 'Fredoka One', cursive;
+}

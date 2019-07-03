@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load bootstrap4 %}
+
+
+
+{% block content %}
+<div>
+<h1 class="fre">INPUT MARKS HERE:</h1>
+
+</div>
+<div class="container mar">
+
+    <form action="" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        {% bootstrap_field form.terminal show_label=False field_class="col-3" %}
+        {% bootstrap_field form.roll show_label=False field_class="col-3" %}
+        {% bootstrap_field form.english show_label=False field_class="col-3" %}
+        {% bootstrap_field form.science show_label=False field_class="col-3" %}
+        {% bootstrap_field form.maths show_label=False field_class="col-3" %}
+        {% bootstrap_field form.nepali show_label=False field_class="col-3" %}
+        {% bootstrap_field form.computer show_label=False field_class="col-3" %}
+
+        {% bootstrap_button "Save" button_type="submit" button_class="btn-primary btn-lg back-btn" %}
+    </form>
+
+
+    <a href="{{request.META.HTTP_REFERER}}">
+        <button class="btn btn-dark btn-md back-btn">Go back</button>
+    </a>
+</div>
+{% endblock %}

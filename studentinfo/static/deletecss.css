@@ -1,0 +1,9 @@
+body {
+    background: white url("images/del.jpg") no-repeat ;
+}
+.mar{
+    margin-top: 3%;
+}
+.container p{
+    font-size: 28px;
+}
