@@ -3,37 +3,26 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import Info, Marks
 from django.urls import reverse_lazy
 from django.views.generic.edit import DeleteView, FormView, UpdateView
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, View
 from studentinfo.forms import InfoForm, MarksForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.base import TemplateView
 from django.db.models import Q, F
 from django.db.models import Sum, Avg
+from io import BytesIO
+from xhtml2pdf import pisa
+from django.template.loader import get_template
+from django.template import Context
+from cgi import escape
+from .utils import render_to_pdf 
+from reportlab.pdfgen import canvas  
+  
 
 # Create your views here.
-
-
 class Info_ListView(LoginRequiredMixin, ListView):
-
     model = Info
     template_name = 'index.html'
     context_object_name = 'infolist'
-
-    # def list(self):
-    #     a=[]
-    #     for name in :
-    #         a.append(name.name_text)
-
-    # def search_titles(request):
-    #     if request.method == 'POST':
-    #         search_text == request.POST['search_text']
-    #     else:
-    #         search_text = ''
-
-    #     list = Info_ListView.objects.filter(name_text__contains=search_text)
-
-    #     return render_to_response('ajax_search.html', {'list' : list})
-
 
 class Info_DetailView(DetailView):
     model = Info
@@ -47,27 +36,22 @@ class Info_DetailView(DetailView):
                 student=self.kwargs['pk'], terminal='first_term').latest('id')
         except:
             context['first_term'] = False
-
         try:
             context['second_term'] = Marks.objects.filter(
                 student=self.kwargs['pk'], terminal='second_term').latest('id')
         except:
             context['second_term'] = False
-
         try:
             context['third_term'] = Marks.objects.filter(
                 student=self.kwargs['pk'], terminal='third_term').latest('id')
-
         except:
             context['third_term'] = False
         return context
-
 
 class Info_DeleteView(DeleteView):
     model = Info
     success_url = reverse_lazy('index')
     template_name = 'deleteform.html'
-
 
 class Info_FormView(LoginRequiredMixin, FormView):
     template_name = 'add.html'
@@ -77,11 +61,8 @@ class Info_FormView(LoginRequiredMixin, FormView):
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.
-
         form.save()
-
         return super(Info_FormView, self).form_valid(form)
-
 
 class Info_UpdateView(UpdateView):
     model = Info
@@ -91,7 +72,6 @@ class Info_UpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('student-detail', args=(self.object.id,))
-
 
 class Marks_MarksView(FormView):
     template_name = 'marks.html'
@@ -103,9 +83,9 @@ class Marks_MarksView(FormView):
     def form_valid(self, form):
         marks = form.save(commit=False)
         marks.student = Info.objects.get(id=self.kwargs['student_id'])
-        marks.total = marks.english + marks.science + marks.maths + marks.nepali + marks.computer
-        marks.avg = marks.total/5
-        marks.percent = (marks.total/500)*100
+        marks.total = marks.english + marks.science + marks.maths + marks.nepali + marks.computer + marks.social + marks.account + marks.eph
+        marks.avg = marks.total/8
+        marks.percent = (marks.total/800)*100
         marks.save()
         return super(Marks_MarksView, self).form_valid(form)
 
@@ -113,7 +93,6 @@ class Marks_ListView(ListView):
     model = Marks
     template_name = 'markslist.html'
     context_object_name = 'markslist'
-
 
 class Marks_DisplayView(DetailView):
     model = Marks
@@ -124,7 +103,6 @@ class Marks_DisplayView(DetailView):
         result = Marks.objects.filter(student=self.kwargs['pk'])
         return result
 
-
 class Marks_UpdateView(UpdateView):
     model = Marks
     form_class = MarksForm
@@ -134,28 +112,31 @@ class Marks_UpdateView(UpdateView):
     def get_success_url(self):
         return reverse_lazy('student-detail', args=(self.object.student_id,))
 
-
 class Home(TemplateView):
     template_name = 'contact.html'
 
-# class Search_View(TemplateView):
-#     template_name = 'autocomplete.html'
+class GeneratePdf(View):
+     def get(self, request, *args, **kwargs):
+        
+        #getting the template
+        pdf = render_to_pdf('invoice.html')
+         
+         #rendering the template
+        return HttpResponse(pdf, content_type='application/pdf')
 
-#     def get_context_data(self, **kwargs):
-#         context = super(Search_View, self).get_context_data(**kwargs)
-#         query=Info.objects.all()
-#         items=[]
-#         for i in query:
-#             items.append(i.name_text.encode('ascii', 'xmlcharrefreplace'))
-#         context['querylist']=items
-#         return context.replace()
+class PdfView(TemplateView):
+    model = Info
+    template_name = 'invoice.html'
+    context_object_name = 'studentdetail'
 
 
-def autocompleteModel(request):
-    search_qs = Info.objects.filter(
-        name_text__startswith=request.REQUEST['search'])
-    results = []
-    for r in search_qs:
-        results.append(r.name)
-    resp = request.REQUEST['callback'] + '(' + json.dumps(result) + ');'
-    return HttpResponse(resp, content_type='application/json')
+    def get_context_data(self, **kwargs):
+        context = super(GeneratePdf, self).get_context_data(**kwargs)
+        
+        context['first_term'] = Marks.objects.filter(id=self.object.id)
+    
+        context['second_term'] = Marks.objects.filter(id=self.object.id)
+
+        context['third_term'] = Marks.objects.filter(id=self.object.id)
+    
+        return context

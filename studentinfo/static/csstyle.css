@@ -9,7 +9,6 @@ li a b{
 }
 body{
     background-image: url('images/bg.png');
-
 }
 
 .add button a{
@@ -37,4 +36,15 @@ h1{
 }
 .fre{
     font-family: 'Fredoka One', cursive;
+}
+.pad{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.list-name{
+    color: navy;
+    font-size: 22px;
+}
+.head-text{
+    font-size: 26px;
 }

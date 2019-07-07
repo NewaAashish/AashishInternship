@@ -20,16 +20,17 @@
                 </table>
             </li>
 
-            
+
             {% endfor %}
         </ul>
-        
+
     </div>
 </div>
 <div class="back-btn">
-        <a href="{{request.META.HTTP_REFERER}}" >
-                <button class="btn btn-dark btn-md">Go back</button>
-                </a>
+    <a href="{{request.META.HTTP_REFERER}}">
+        <button class="btn btn-dark btn-md"><i class="fa fa-arrow-left" aria-hidden="true"> Go back</i>
+        </button>
+    </a>
 </div>
 
 {% endblock %}

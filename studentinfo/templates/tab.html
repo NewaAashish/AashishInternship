@@ -1,13 +1,5 @@
 {% load static %}
 {% load bootstrap4 %}
-<!-- {% block extends_css %}
-<link rel="stylesheet" type="text/css" href="{% static 'tab.css' %}" />
-
-{% endblock extends_css %} -->
-
-
-
-
 
 <hr>
 </hr>
@@ -18,22 +10,24 @@
 <div id="exTab2" class="container ">
     <ul class="nav nav-tabs">
         <li class="active flex-fill">
-            <a class="btn btn-dark " href="#1" data-toggle="tab">First Terminal</a>
+            <a class="btn btn-light" href="#1" data-toggle="tab">First Terminal</a>
         </li>
-        <li class="flex-fill"><a class="btn btn-dark" href="#2" data-toggle="tab">Second Terminal</a>
+        <li class="flex-fill d-flex justify-content-center"><a class="btn btn-light" href="#2" data-toggle="tab">Second
+                Terminal</a>
         </li>
-        <li class="flex-fill"><a class="btn btn-dark" href="#3" data-toggle="tab">Third Terminal</a>
+        <li class="flex-fill d-flex justify-content-end"><a class="btn btn-light" href="#3" data-toggle="tab">Third
+                Terminal</a>
         </li>
     </ul>
-
-    <div class="tab-content ">
+    <div class="tab-content">
         <div class="tab-pane active" id="1">
-            <table class="table table-striped table-dark">
+            <table class="table table-striped table-light">
                 <thead>
                     <tr>
                         <td> <u>First Term</u></td>
                         <td><a class="btn btn-primary button-add" href="{% url 'updatemarks' first_term.pk %}">
-                                Update Marks</a></td>
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"> Update Marks</i>
+                            </a></td>
 
                     </tr>
                     <tr>
@@ -69,6 +63,22 @@
 
                     </tr>
                     <tr>
+                        <td>Social</td>
+                        <td>{{ first_term.social }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Account</td>
+                        <td>{{ first_term.account }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>EPH</td>
+                        <td>{{ first_term.eph }}</td>
+
+                    </tr>
+
+                    <tr>
                         <td>Total</td>
                         <td>{{ first_term.total }}</td>
 
@@ -84,20 +94,24 @@
 
                     </tr>
 
+
                 </tbody>
             </table>
         </div>
         <div class="tab-pane" id="2">
-            <table class="table table-striped table-dark">
+            <table class="table table-striped table-light">
                 <thead>
                     <tr>
                         <td><u>Second Term</u> </td>
                         {% if second_term %}
                         <td><a class="btn btn-primary button-add" href="{% url 'updatemarks' second_term.pk %}">
-                                Update Marks</a></td>
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"> Update Marks</i>
+                            </a></td>
 
+                        {% else %}
+                        <td><a class="btn btn-primary button-add" href="{% url 'marks' studentdetail.pk %}">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"> Add Marks</i> </a></td>
                         {% endif %}
-
                     </tr>
                     <tr>
                         <th class="col-3">Subject</th>
@@ -132,6 +146,21 @@
 
                     </tr>
                     <tr>
+                        <td>Social</td>
+                        <td>{{ second_term.social }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Account</td>
+                        <td>{{ second_term.account }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>EPH</td>
+                        <td>{{ second_term.eph }}</td>
+
+                    </tr>
+                    <tr>
                         <td>Total</td>
                         <td>{{ second_term.total }}</td>
 
@@ -150,13 +179,18 @@
             </table>
         </div>
         <div class="tab-pane" id="3">
-            <table class="table table-striped table-dark">
+            <table class="table table-striped table-light">
                 <thead>
                     <tr>
                         <td><u>Third Term</u> </td>
                         {% if third_term %}
                         <td><a class="btn btn-primary button-add" href="{% url 'updatemarks' third_term.pk %}">
-                                Update Marks</a></td>
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"> Update Marks</i>
+                            </a></td>
+
+                        {% else %}
+                        <td><a class="btn btn-primary button-add" href="{% url 'marks' studentdetail.pk %}">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"> Add Marks</i> </a></td>
                         {% endif %}
 
                     </tr>
@@ -193,6 +227,21 @@
 
                     </tr>
                     <tr>
+                        <td>Social</td>
+                        <td>{{ third_term.social }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Account</td>
+                        <td>{{ third_term.account }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>EPH</td>
+                        <td>{{ third_term.eph }}</td>
+
+                    </tr>
+                    <tr>
                         <td>Total</td>
                         <td>{{ third_term.total }}</td>
 
@@ -211,6 +260,7 @@
             </table>
         </div>
     </div>
+
 </div>
 
 <hr>

@@ -27,7 +27,7 @@
 </head>
 
 <body>
-  
+
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <!-- Brand/logo -->
     <a class="navbar-brand nav-link " href="{% url 'index' %}"><i class="fa fa-home" aria-hidden="true"></i></a>
@@ -37,28 +37,28 @@
       <li class="nav-link dance active">Student Grading System</li>
       {% if request.user.is_authenticated %}
       <li class="nav-item">
-          
+
 
         <a class="nav-link" href="{% url 'add' %}"><i class="fa fa-plus" aria-hidden="true">Add Student</i></a>
-      </li>    {% endif %}
+      </li> {% endif %}
 
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'home' %}">Contact Us</a>
+        <a class="nav-link" href="{% url 'home' %}"><i class="fa fa-phone-square" aria-hidden="true"> Contact Us</i>
+        </a>
       </li>
-  
+
       <li class="nav-item">
-    {% if request.user.is_authenticated %}
+        {% if request.user.is_authenticated %}
         <a class="nav-link" href="{% url 'account_logout' %}"><i class="fa fa-sign-out"
             aria-hidden="true">Logout</i></a>
-    {% else %}
-        <a class="nav-link" href="{% url 'account_login' %}"><i class="fa fa-sign-out"
-            aria-hidden="true">Login</i></a>
-    {% endif %}
+        {% else %}
+        <a class="nav-link" href="{% url 'account_login' %}"><i class="fa fa-sign-out" aria-hidden="true">Login</i></a>
+        {% endif %}
       </li>
-  
+
     </ul>
   </nav>
-  
+
 
   {% block content %}
 

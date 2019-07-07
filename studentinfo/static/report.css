@@ -1,0 +1,14 @@
+body{
+    margin:3%;
+}
+@media print {
+    * {
+      display: none;
+    }
+    #printableTable {
+      display: block;
+    }
+  }
+.page_break{
+    page-break-before: always;
+}

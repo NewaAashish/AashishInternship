@@ -6,7 +6,7 @@
 
 {% block content %}
 <div>
-<h1 class="fre">INPUT MARKS HERE:</h1>
+    <h1 class="fre">INPUT MARKS HERE:</h1>
 
 </div>
 <div class="container mar">
@@ -20,13 +20,17 @@
         {% bootstrap_field form.maths show_label=False field_class="col-3" %}
         {% bootstrap_field form.nepali show_label=False field_class="col-3" %}
         {% bootstrap_field form.computer show_label=False field_class="col-3" %}
+        {% bootstrap_field form.social show_label=False field_class="col-3" %}
+        {% bootstrap_field form.account show_label=False field_class="col-3" %}
+        {% bootstrap_field form.eph show_label=False field_class="col-3" %}
 
         {% bootstrap_button "Save" button_type="submit" button_class="btn-primary btn-lg back-btn" %}
     </form>
 
 
     <a href="{{request.META.HTTP_REFERER}}">
-        <button class="btn btn-dark btn-md back-btn">Go back</button>
+        <button class="btn btn-dark btn-md back-btn"><i class="fa fa-arrow-left" aria-hidden="true"> Go back</i>
+        </button>
     </a>
 </div>
 {% endblock %}

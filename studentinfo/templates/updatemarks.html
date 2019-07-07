@@ -6,28 +6,32 @@
 
 {% block content %}
 <div>
-<h1 class="fre">UPDATE MARKS HERE:</h1>
+    <h1 class="fre">UPDATE MARKS HERE:</h1>
 
 </div>
 <div class="container mar">
 
     <form action="" enctype="multipart/form-data" method="POST">
         {% csrf_token %}
-        {% bootstrap_field form.terminal  field_class="col-3" %}
+        {% bootstrap_field form.terminal  field_class="col-3 " %}
         {% bootstrap_field form.roll  field_class="col-3" %}
         {% bootstrap_field form.english  field_class="col-3" %}
         {% bootstrap_field form.science  field_class="col-3" %}
         {% bootstrap_field form.maths  field_class="col-3" %}
         {% bootstrap_field form.nepali  field_class="col-3" %}
         {% bootstrap_field form.computer  field_class="col-3" %}
-        
+        {% bootstrap_field form.social  field_class="col-3" %}
+        {% bootstrap_field form.account  field_class="col-3" %}
+        {% bootstrap_field form.eph  field_class="col-3" %}
+
 
         {% bootstrap_button "Save" button_type="submit" button_class="btn-primary btn-lg back-btn" %}
     </form>
 
 
     <a href="{{request.META.HTTP_REFERER}}">
-        <button class="btn btn-dark btn-md back-btn">Go back</button>
+        <button class="btn btn-dark btn-md back-btn"><i class="fa fa-arrow-left" aria-hidden="true"> Go back</i>
+        </button>
     </a>
 </div>
 {% endblock %}

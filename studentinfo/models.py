@@ -7,6 +7,7 @@ class Info(models.Model):
     faculty=models.CharField(max_length=20)
     contact=models.IntegerField()
     image=models.ImageField(upload_to='documents/', blank=True, null=True, default='documents/dummyprofile.png')
+    
     def __str__(self):
         return self.name_text
     
@@ -25,6 +26,9 @@ class Marks(models.Model):
     maths=models.IntegerField()
     nepali=models.IntegerField()
     computer=models.IntegerField()
+    social=models.IntegerField()
+    eph = models.IntegerField()
+    account = models.IntegerField()
     avg = models.FloatField(null=True, blank=True)
     total=models.IntegerField(blank=True, null=True)
     percent = models.FloatField(null=True, blank=True)

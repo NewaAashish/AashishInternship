@@ -2,18 +2,11 @@
 {% load static %}
 {% block content %}
 
-<h1 class="text-center fre">Detail Information</h1>
+<h1 class="text-center fre">Student Information</h1>
 <div class="container mar">
     <div class="row">
         <div class="col">
-            <!-- <table class="table">
-                <tr>
-                    <td><b>Name: </b> {{ studentdetail.name_text }}</td>
-                    <td><b>Batch No: </b>{{ studentdetail.batch_no }}</td>
-                    <td><b>Faculty: </b>{{ studentdetail.faculty }}</td>
-                    <td><b>Contact: </b>{{ studentdetail.contact }}</td>
-                </tr>
-            </table> -->
+
             <table class="table">
                 <tr>
                     <div class="card text-center" style="width:210px">
@@ -24,7 +17,7 @@
                         <img class="card-img-top" src="{% static 'images/dummyprofile.png' %}" alt="Card image"
                             style="width:50%">
                         {% endif %}
-                        <div class="card-body">
+                        <div class="card-body bg-info">
                             <h4 class="card-title">{{ studentdetail.name_text }}</h4>
                             <p class="card-text"><b>Batch No: </b> {{ studentdetail.batch_no }} <br>
                                 <b>Faculty: </b> {{ studentdetail.faculty }} <br>
@@ -34,52 +27,12 @@
                 </tr>
             </table>
             <div>{% if first_term %}
-                <!-- <table class="table table-striped table-dark">
-                    <thead>
-                        <tr><td></td>
-                            <td>{{ first_term.terminal }}</td>
-                        </tr>
-                        <tr>
-                            <th>Subject</th>
-                            <th>Marks</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>English</td>
-                            <td>{{ first_term.english }}</td>
-
-                        </tr>
-                        <tr>
-                            <td>Science</td>
-                            <td>{{ first_term.science }}</td>
-
-                        </tr>
-                        <tr>
-                            <td>Maths</td>
-                            <td>{{ first_term.maths }}</td>
-
-                        </tr>
-                        <tr>
-                            <td>Nepali</td>
-                            <td>{{ first_term.nepali }}</td>
-
-                        </tr>
-                        <tr>
-                            <td>Computer</td>
-                            <td>{{ first_term.computer }}</td>
-
-                        </tr>
-                    </tbody>
-                </table> -->
-                <!-- <a class="btn btn-primary button-add" href="{% url 'updatemarks' first_term.pk %}">
-                        Update Marks</a> -->
                 {% include 'tab.html' %}
                 {% else %}
                 <div class="marks">
-                    <button class="btn btn-dark btn-lg button-add"><a href="{% url 'marks' studentdetail.pk %}">Input
-                            Marks</a></button>
+                    <button class="btn btn-dark btn-lg button-add"><a href="{% url 'marks' studentdetail.pk %}">
+                            <i class="fa fa-plus-circle" aria-hidden="true"> Input Marks</i></a></button>
                 </div>
                 {% endif %}
 
@@ -87,20 +40,19 @@
 
         </div>
         <div class="col-2">
-            <!-- {% if studentdetail.image %} -->
-            <!-- <b>Image:</b>
-            <img src="{{ studentdetail.image.url }}" class="img-thumbnail rounded img-fluid"> <br> -->
-            <!-- {% else %} -->
-            <!-- Image: <img src="{% static 'images/dummyprofile.png' %}"class="img-thumbnail rounded img-fluid"> -->
-            <!-- {% endif %} -->
+
         </div>
         <div>
-            <a class="btn btn-primary button-add" href="{% url 'updatestudent' studentdetail.pk %}">
-                Update Student Info</a>
-        </div>
-        <div>
+            <a class="btn btn-primary button-add" href="{% url 'updatestudent' studentdetail.pk %}"><i
+                    class="fa fa-pencil-square" aria-hidden="true">
+                    Update Student Info
+                </i>
+            </a>
+            <a class="btn btn-primary" href="{% url 'pdf' %}"><i class="fa fa-file-pdf-o" aria-hidden="true"> Generate
+                    PDF</i></a>
             <a href="{{request.META.HTTP_REFERER}}">
-                <button class="btn btn-dark btn-md">Go back</button>
+                <button class="btn btn-dark btn-md"><i class="fa fa-arrow-left" aria-hidden="true"> Go back</i>
+                </button>
             </a>
         </div>
 
