@@ -29,11 +29,8 @@ class Marks(models.Model):
     social=models.IntegerField()
     eph = models.IntegerField()
     account = models.IntegerField()
-    avg = models.FloatField(null=True, blank=True)
-    total=models.IntegerField(blank=True, null=True)
+    total = models.IntegerField(blank=True, null=True)
     percent = models.FloatField(null=True, blank=True)
 
     def __int__(self):
         return self.roll
-
-

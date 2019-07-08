@@ -5,14 +5,13 @@
 <h1 class="text-center fre">Student Information</h1>
 <div class="container mar">
     <div class="row">
-        <div class="col">
+        <div class="col-12">
 
-            <table class="table">
-                <tr>
-                    <div class="card text-center" style="width:210px">
+            <div class="row">
+                <div class="col-4">
+                    <div class="card text-center">
                         {% if studentdetail.image %}
-                        <img class="card-img-top" src="{{ studentdetail.image.url }}" alt="Card image"
-                            style="width:100%">
+                        <img class="card-img-top" src="{{ studentdetail.image.url }}" alt="Card image">
                         {% else %}
                         <img class="card-img-top" src="{% static 'images/dummyprofile.png' %}" alt="Card image"
                             style="width:50%">
@@ -24,42 +23,52 @@
                                 <b>Contact: </b> {{ studentdetail.contact }}</p>
                         </div>
                     </div>
-                </tr>
-            </table>
-            <div>{% if first_term %}
-
-                {% include 'tab.html' %}
-                {% else %}
-                <div class="marks">
-                    <button class="btn btn-dark btn-lg button-add"><a href="{% url 'marks' studentdetail.pk %}">
-                            <i class="fa fa-plus-circle" aria-hidden="true"> Input Marks</i></a></button>
                 </div>
-                {% endif %}
+                <div class="col-2">
 
+                </div>
+                <div class="container col-5 ">
+                    <a class="btn btn-primary button-add" href="{% url 'updatestudent' studentdetail.pk %}"><i
+                            class="fa fa-pencil-square" aria-hidden="true">Update Student Info
+                        </i>
+                    </a>
+                    <a class="btn btn-primary" href="{% url 'pdftemp' studentdetail.pk %}"><i class="fa fa-file-pdf-o"
+                            aria-hidden="true"> Generate
+                            PDF</i></a>
+                    <a href="{{request.META.HTTP_REFERER}}">
+                        <button class="btn btn-dark btn-md"><i class="fa fa-arrow-left" aria-hidden="true">
+                                Go
+                                back</i>
+                        </button>
+                    </a>
+                </div>
             </div>
 
-        </div>
-        <div class="col-2">
 
         </div>
-        <div>
-            <a class="btn btn-primary button-add" href="{% url 'updatestudent' studentdetail.pk %}"><i
-                    class="fa fa-pencil-square" aria-hidden="true">
-                    Update Student Info
-                </i>
-            </a>
-            <a class="btn btn-primary" href="{% url 'pdf' %}"><i class="fa fa-file-pdf-o" aria-hidden="true"> Generate
-                    PDF</i></a>
-            <a href="{{request.META.HTTP_REFERER}}">
-                <button class="btn btn-dark btn-md"><i class="fa fa-arrow-left" aria-hidden="true"> Go back</i>
-                </button>
-            </a>
+        <div class="col-12">{% if first_term %}
+
+            {% include 'tab.html' %}
+            {% else %}
+            <div class="marks">
+                <button class="btn btn-dark btn-lg button-add"><a href="{% url 'marks' studentdetail.pk %}">
+                        <i class="fa fa-plus-circle" aria-hidden="true"> Input Marks</i></a></button>
+            </div>
+            {% endif %}
+
         </div>
+
+
+
 
 
     </div>
+    {% if first_term %}
+    <div class="container row">
+        <p><b>Marks with * are considered fail.</b></p>
 
-
+    </div>
+    {% endif %}
 </div>
 
 {% endblock %}

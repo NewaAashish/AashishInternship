@@ -8,12 +8,9 @@
 {% csrf_token %}
 <input type="search" id="search" name="search">
 <ul id="search-results"></ul> -->
-<div class="pad"><input type="text" name="search" id="txtSearch" onkeyup="searchOpen()" /><button><i
+<!-- <div class="pad"><input type="text" name="search" id="txtSearch" onkeyup="searchOpen()" /><button><i
       class="fa fa-search" aria-hidden="true"></i></button>
-</div>
-
-
-
+</div> -->
 
 <!-- Student List Start -->
 <div class="row justify-content-start mar" style="width: 100%;">
@@ -33,14 +30,13 @@
       <tr>
 
         <td>
-          <a href="{% url 'student-detail' i.pk %}"> <b class="list-name dance">{{ i.name_text }}</b></a>
+          <a href="{% url 'student-detail' i.pk %}"> <b class="list-name dance text-dark">{{ i.name_text }} {{ studentdetail.image }}</b></a>
         </td>
         <td>
           <a class="btn btn-danger" data-toggle="modal" data-target="#myModal{{i.id}}" href="{% url 'delete' i.pk %}"><i
               class="fa fa-trash-o" style="font-size:26px"></i></a>
         </td>
       </tr>
-
 
       <!-- Delete form model -->
       <div class="modal" id="myModal{{i.id}}" role="dialog">

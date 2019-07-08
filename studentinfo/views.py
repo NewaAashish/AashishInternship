@@ -17,7 +17,6 @@ from cgi import escape
 from .utils import render_to_pdf 
 from reportlab.pdfgen import canvas  
   
-
 # Create your views here.
 class Info_ListView(LoginRequiredMixin, ListView):
     model = Info
@@ -84,7 +83,6 @@ class Marks_MarksView(FormView):
         marks = form.save(commit=False)
         marks.student = Info.objects.get(id=self.kwargs['student_id'])
         marks.total = marks.english + marks.science + marks.maths + marks.nepali + marks.computer + marks.social + marks.account + marks.eph
-        marks.avg = marks.total/8
         marks.percent = (marks.total/800)*100
         marks.save()
         return super(Marks_MarksView, self).form_valid(form)
@@ -125,18 +123,14 @@ class GeneratePdf(View):
         return HttpResponse(pdf, content_type='application/pdf')
 
 class PdfView(TemplateView):
-    model = Info
+    model = Marks
     template_name = 'invoice.html'
-    context_object_name = 'studentdetail'
 
+#     def get_context_data(self, **kwargs):
+#         context = super(PdfView, self).get_context_data(**kwargs)
+#         context['form'] = InfoForm
+#         return context
 
-    def get_context_data(self, **kwargs):
-        context = super(GeneratePdf, self).get_context_data(**kwargs)
-        
-        context['first_term'] = Marks.objects.filter(id=self.object.id)
-    
-        context['second_term'] = Marks.objects.filter(id=self.object.id)
-
-        context['third_term'] = Marks.objects.filter(id=self.object.id)
-    
-        return context
+# class MyFormView(DetailView):
+#     form_class = InfoForm
+#     success_url = reverse_lazy('index')

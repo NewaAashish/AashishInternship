@@ -6,265 +6,488 @@
 <div class="container">
     <h4 class="fre">Terminal Marks</h4>
 </div>
+<div class="row">
+    <div id="exTab2" class="container ">
+        <ul class="nav nav-tabs">
+            <li class="active flex-fill">
+                <a class="btn btn-lg btn-light" href="#1" data-toggle="tab">First Terminal</a>
+            </li>
+            <li class="flex-fill d-flex justify-content-center"><a class="btn btn-lg btn-light" href="#2"
+                    data-toggle="tab">Second
+                    Terminal</a>
+            </li>
+            <li class="flex-fill d-flex justify-content-end"><a class="btn btn-lg btn-light" href="#3"
+                    data-toggle="tab">Third
+                    Terminal</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class=" tab-pane active text-center" id="1">
+                <table class="table table-striped table-light">
+                    <thead>
+                        <tr>
+                            <td style="width: 240px;">
+                                <h4>First Term</h4>
+                            </td>
+                            <td style="width: 240px;"></td>
+                            <td style="width: 240px;"></td>
+                            <td style="width: 240px;"><a class="btn btn-primary button-add"
+                                    href="{% url 'updatemarks' first_term.pk %}">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true">Update Marks</i>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Full Marks</th>
+                            <th>Pass Marks</th>
+                            <th>Marks</th>
 
-<div id="exTab2" class="container ">
-    <ul class="nav nav-tabs">
-        <li class="active flex-fill">
-            <a class="btn btn-light" href="#1" data-toggle="tab">First Terminal</a>
-        </li>
-        <li class="flex-fill d-flex justify-content-center"><a class="btn btn-light" href="#2" data-toggle="tab">Second
-                Terminal</a>
-        </li>
-        <li class="flex-fill d-flex justify-content-end"><a class="btn btn-light" href="#3" data-toggle="tab">Third
-                Terminal</a>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane active" id="1">
-            <table class="table table-striped table-light">
-                <thead>
-                    <tr>
-                        <td> <u>First Term</u></td>
-                        <td><a class="btn btn-primary button-add" href="{% url 'updatemarks' first_term.pk %}">
-                                <i class="fa fa-pencil-square-o" aria-hidden="true"> Update Marks</i>
-                            </a></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>English</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if first_term.english >= 40 %}
+                            <td>{{ first_term.english }}</td>
+                            {% else %}
+                            <td>
+                                {{ first_term.english }} *</td>
+                            {% endif %}
 
-                    </tr>
-                    <tr>
-                        <th class="col-3">Subject</th>
-                        <th class="col-3">Marks</th>
+                        </tr>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>English</td>
-                        <td>{{ first_term.english }}</td>
+                        <tr>
+                            <td>Science</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if first_term.science >= 40 %}
+                            <td>{{ first_term.science }}</td>
+                            {% else %}
+                            <td>
+                                {{ first_term.science }} *</td>
+                            {% endif %}
 
-                    </tr>
-                    <tr>
-                        <td>Science</td>
-                        <td>{{ first_term.science }}</td>
+                        </tr>
+                        </tr>
+                        <tr>
+                            <td>Maths</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if first_term.maths >= 40 %}
+                            <td>{{ first_term.maths }}</td>
+                            {% else %}
+                            <td>{{ first_term.maths }} *</td>
+                            {% endif %}
 
-                    </tr>
-                    <tr>
-                        <td>Maths</td>
-                        <td>{{ first_term.maths }}</td>
+                        </tr>
+                        <tr>
+                            <td>Nepali</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if first_term.nepali >= 40 %}
+                            <td>{{ first_term.nepali }}</td>
+                            {% else %}
+                            <td>{{ first_term.nepali }} *</td>
+                            {% endif %}
 
-                    </tr>
-                    <tr>
-                        <td>Nepali</td>
-                        <td>{{ first_term.nepali }}</td>
+                        </tr>
+                        <tr>
+                            <td>Computer</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if first_term.computer >= 40 %}
+                            <td>{{ first_term.computer }}</td>
+                            {% else %}
+                            <td>{{ first_term.computer }} *</td>
+                            {% endif %}
 
-                    </tr>
-                    <tr>
-                        <td>Computer</td>
-                        <td>{{ first_term.computer }}</td>
+                        </tr>
+                        <tr>
+                            <td>Social</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if first_term.social >= 40 %}
+                            <td>{{ first_term.social }}</td>
+                            {% else %}
+                            <td>{{ first_term.social }} *</td>
+                            {% endif %}
 
-                    </tr>
-                    <tr>
-                        <td>Social</td>
-                        <td>{{ first_term.social }}</td>
+                        </tr>
+                        <tr>
+                            <td>Account</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if first_term.account >= 40 %}
+                            <td>{{ first_term.account }}</td>
+                            {% else %}
+                            <td>{{ first_term.account }} *</td>
+                            {% endif %}
 
-                    </tr>
-                    <tr>
-                        <td>Account</td>
-                        <td>{{ first_term.account }}</td>
+                        </tr>
+                        <tr>
+                            <td>EPH</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if first_term.eph >= 40 %}
+                            <td>{{ first_term.eph }}</td>
+                            {% else %}
+                            <td>{{ first_term.eph }} *</td>
+                            {% endif %}
 
-                    </tr>
-                    <tr>
-                        <td>EPH</td>
-                        <td>{{ first_term.eph }}</td>
+                        </tr>
+                        <tr class="font-weight-bold">
+                            <td>Total</td>
+                            <td>800</td>
+                            <td>360</td>
+                            <td>{{ first_term.total }}</td>
+                        </tr>
 
-                    </tr>
+                        <tr class="font-weight-bold">
+                            <td>Percentage</td>
+                            <td>100%</td>
+                            <td>40%</td>
+                            <td>{{ first_term.percent }}%</td>
+                        </tr>
+                        <tr class="font-weight-bold">
+                            <td>Division</td>
+                            <td>---</td>
+                            <td>---</td>
 
-                    <tr>
-                        <td>Total</td>
-                        <td>{{ first_term.total }}</td>
+                            {% if first_term.percent >= 80 %}
+                            <td>Distinction</td>
+                            {% elif first_term.percent >= 65 %}
+                            <td>1st</td>
+                            {% elif first_term.percent >= 55 %}
+                            <td>2nd</td>
+                            {% elif first_term.percent >= 40 %}
+                            <td>3rd</td>
+                            {% else %}
+                            <td>Fail</td>
 
-                    </tr>
-                    <tr>
-                        <td>Average</td>
-                        <td>{{ first_term.avg }}</td>
+                            {% endif %}
 
-                    </tr>
-                    <tr>
-                        <td>Percentage</td>
-                        <td>{{ first_term.percent }}%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane text-center" id="2">
+                <table class="table table-striped table-light">
+                    <thead>
+                        <tr>
+                            <td style="width: 240px;">
+                                <h4>Second Term</h4>
+                            </td>
+                            <td style="width: 240px;"></td>
+                            <td style="width: 240px;"></td>
+                            {% if second_term %}
+                            <td style="width: 240px;"><a class="btn btn-primary button-add"
+                                    href="{% url 'updatemarks' second_term.pk %}">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"> Update Marks</i>
+                                </a></td>
+                            {% else %}
+                            <td style="width: 240px;"><a class="btn btn-primary button-add"
+                                    href="{% url 'marks' studentdetail.pk %}">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"> Add Marks</i> </a></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Full Marks</th>
+                            <th>Pass Marks</th>
+                            <th>Marks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>English</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if second_term.english >= 40 %}
+                            <td>{{ second_term.english }}</td>
+                            {% else %}
+                            <td>
+                                {{ second_term.english }} *</td>
+                            {% endif %}
 
-                    </tr>
+                        </tr>
+                        <tr>
+                            <td>Science</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if second_term.science >= 40 %}
+                            <td>{{ second_term.science }}</td>
+                            {% else %}
+                            <td>
+                                {{ second_term.science }} *</td>
+                            {% endif %}
 
+                        </tr>
+                        <tr>
+                            <td>Maths</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if second_term.maths >= 40 %}
+                            <td>{{ second_term.maths }}</td>
+                            {% else %}
+                            <td>{{ second_term.maths }} *</td>
+                            {% endif %}
 
-                </tbody>
-            </table>
+                        </tr>
+                        <tr>
+                            <td>Nepali</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if second_term.nepali >= 40 %}
+                            <td>{{ second_term.nepali }}</td>
+                            {% else %}
+                            <td>{{ second_term.nepali }} *</td>
+                            {% endif %}
+
+                        </tr>
+                        <tr>
+                            <td>Computer</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if second_term.computer >= 40 %}
+                            <td>{{ second_term.computer }}</td>
+                            {% else %}
+                            <td>{{ second_term.computer }} *</td>
+                            {% endif %}
+
+                        </tr>
+                        <tr>
+                            <td>Social</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if second_term.social >= 40 %}
+                            <td>{{ second_term.social }}</td>
+                            {% else %}
+                            <td>{{ second_term.social }} *</td>
+                            {% endif %}
+
+                        </tr>
+                        <tr>
+                            <td>Account</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if second_term.account >= 40 %}
+                            <td>{{ second_term.account }}</td>
+                            {% else %}
+                            <td>{{ second_term.account }} *</td>
+                            {% endif %}
+
+                        </tr>
+                        <tr>
+                            <td>EPH</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if second_term.eph >= 40 %}
+                            <td>{{ second_term.eph }}</td>
+                            {% else %}
+                            <td>{{ second_term.eph }} *</td>
+                            {% endif %}
+
+                        </tr>
+                        <tr class="font-weight-bold">
+                            <td>Total</td>
+                            <td>800</td>
+                            <td>320</td>
+                            <td>{{ second_term.total }}</td>
+
+                        </tr>
+
+                        <tr class="font-weight-bold">
+                            <td>Percentage</td>
+                            <td>100%</td>
+                            <td>40%</td>
+                            <td>{{ second_term.percent }}%</td>
+
+                        </tr>
+                        <tr class="font-weight-bold">
+                            <td>Division</td>
+                            <td>---</td>
+                            <td>---</td>
+
+                            {% if second_term.percent >= 80 %}
+                            <td>Distinction</td>
+                            {% elif second_term.percent >= 65 %}
+                            <td>1st</td>
+                            {% elif second_term.percent >= 55 %}
+                            <td>2nd</td>
+                            {% elif second_term.percent >= 40 %}
+                            <td>3rd</td>
+                            {% else %}
+                            <td>Fail</td>
+                            {% endif %}
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane text-center" id="3">
+                <table class="table table-striped table-light">
+                    <thead>
+                        <tr>
+                            <td style="width: 240px;">
+                                <h4>Third Term</h4>
+                            </td>
+                            <td style="width: 240px;"></td>
+                            <td style="width: 240px;"></td>
+                            {% if third_term %}
+                            <td style="width: 240px;"><a class="btn btn-primary button-add"
+                                    href="{% url 'updatemarks' third_term.pk %}">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"> Update Marks</i>
+                                </a></td>
+
+                            {% else %}
+                            <td style="width: 240px;"><a class="btn btn-primary button-add"
+                                    href="{% url 'marks' studentdetail.pk %}">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"> Add Marks</i> </a></td>
+                            {% endif %}
+
+                        </tr>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Full Marks</th>
+                            <th>Pass Marks</th>
+                            <th>Marks</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>English</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if third_term.english >= 40 %}
+                            <td>{{ third_term.english }}</td>
+                            {% else %}
+                            <td>
+                                {{ third_term.english }} *</td>
+                            {% endif %}
+
+                        </tr>
+                        <tr>
+                            <td>Science</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if third_term.science >= 40 %}
+                            <td>{{ third_term.science }}</td>
+                            {% else %}
+                            <td>
+                                {{ third_term.science }} *</td>
+                            {% endif %}
+
+                        </tr>
+                        <tr>
+                            <td>Maths</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if third_term.maths >= 40 %}
+                            <td>{{ third_term.maths }}</td>
+                            {% else %}
+                            <td>{{ third_term.maths }} *</td>
+                            {% endif %}
+
+                        </tr>
+                        <tr>
+                            <td>Nepali</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if third_term.nepali >= 40 %}
+                            <td>{{ third_term.nepali }}</td>
+                            {% else %}
+                            <td>{{ third_term.nepali }} *</td>
+                            {% endif %}
+
+                        </tr>
+                        <tr>
+                            <td>Computer</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if third_term.computer >= 40 %}
+                            <td>{{ third_term.computer }}</td>
+                            {% else %}
+                            <td>{{ third_term.computer }} *</td>
+                            {% endif %}
+
+                        </tr>
+                        <tr>
+                            <td>Social</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if third_term.social >= 40 %}
+                            <td>{{ third_term.social }}</td>
+                            {% else %}
+                            <td>{{ third_term.social }} *</td>
+                            {% endif %}
+
+                        </tr>
+                        <tr>
+                            <td>Account</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if third_term.account >= 40 %}
+                            <td>{{ third_term.account }}</td>
+                            {% else %}
+                            <td>{{ third_term.account }} *</td>
+                            {% endif %}
+
+                        </tr>
+                        <tr>
+                            <td>EPH</td>
+                            <td>100</td>
+                            <td>40</td>
+                            {% if third_term.eph >= 40 %}
+                            <td>{{ third_term.eph }}</td>
+                            {% else %}
+                            <td>{{ third_term.eph }} *</td>
+                            {% endif %}
+
+                        </tr>
+                        <tr class="font-weight-bold">
+                            <td>Total</td>
+                            <td>800</td>
+                            <td>320</td>
+                            <td>{{ third_term.total }}</td>
+
+                        </tr>
+
+                        <tr class="font-weight-bold">
+                            <td>Percentage</td>
+                            <td>100%</td>
+                            <td>40%</td>
+                            <td>{{ third_term.percent }}%</td>
+
+                        </tr>
+                        <tr class="font-weight-bold" s>
+                            <td>Division</td>
+                            <td>---</td>
+                            <td>---</td>
+
+                            {% if third_term.percent >= 80 %}
+                            <td>Distinction</td>
+                            {% elif third_term.percent >= 65 %}
+                            <td>1st</td>
+                            {% elif third_term.percent >= 55 %}
+                            <td>2nd</td>
+                            {% elif third_term.percent >= 40 %}
+                            <td>3rd</td>
+                            {% else %}
+                            <td>Fail</td>
+                            {% endif %}
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="tab-pane" id="2">
-            <table class="table table-striped table-light">
-                <thead>
-                    <tr>
-                        <td><u>Second Term</u> </td>
-                        {% if second_term %}
-                        <td><a class="btn btn-primary button-add" href="{% url 'updatemarks' second_term.pk %}">
-                                <i class="fa fa-pencil-square-o" aria-hidden="true"> Update Marks</i>
-                            </a></td>
 
-                        {% else %}
-                        <td><a class="btn btn-primary button-add" href="{% url 'marks' studentdetail.pk %}">
-                                <i class="fa fa-pencil-square-o" aria-hidden="true"> Add Marks</i> </a></td>
-                        {% endif %}
-                    </tr>
-                    <tr>
-                        <th class="col-3">Subject</th>
-                        <th class="col-3">Marks</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>English</td>
-                        <td>{{ second_term.english }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Science</td>
-                        <td>{{ second_term.science }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Maths</td>
-                        <td>{{ second_term.maths }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Nepali</td>
-                        <td>{{ second_term.nepali }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Computer</td>
-                        <td>{{ second_term.computer }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Social</td>
-                        <td>{{ second_term.social }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Account</td>
-                        <td>{{ second_term.account }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>EPH</td>
-                        <td>{{ second_term.eph }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Total</td>
-                        <td>{{ second_term.total }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Average</td>
-                        <td>{{ second_term.avg }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Percentage</td>
-                        <td>{{ second_term.percent }}%</td>
-
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="tab-pane" id="3">
-            <table class="table table-striped table-light">
-                <thead>
-                    <tr>
-                        <td><u>Third Term</u> </td>
-                        {% if third_term %}
-                        <td><a class="btn btn-primary button-add" href="{% url 'updatemarks' third_term.pk %}">
-                                <i class="fa fa-pencil-square-o" aria-hidden="true"> Update Marks</i>
-                            </a></td>
-
-                        {% else %}
-                        <td><a class="btn btn-primary button-add" href="{% url 'marks' studentdetail.pk %}">
-                                <i class="fa fa-pencil-square-o" aria-hidden="true"> Add Marks</i> </a></td>
-                        {% endif %}
-
-                    </tr>
-                    <tr>
-                        <th class="col-3">Subject</th>
-                        <th class="col-3">Marks</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>English</td>
-                        <td>{{ third_term.english }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Science</td>
-                        <td>{{ third_term.science }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Maths</td>
-                        <td>{{ third_term.maths }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Nepali</td>
-                        <td>{{ third_term.nepali }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Computer</td>
-                        <td>{{ third_term.computer }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Social</td>
-                        <td>{{ third_term.social }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Account</td>
-                        <td>{{ third_term.account }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>EPH</td>
-                        <td>{{ third_term.eph }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Total</td>
-                        <td>{{ third_term.total }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Average</td>
-                        <td>{{ third_term.avg }}</td>
-
-                    </tr>
-                    <tr>
-                        <td>Percentage</td>
-                        <td>{{ third_term.percent }}%</td>
-
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
-
 </div>
 
-<hr>
-</hr>
 
 
 

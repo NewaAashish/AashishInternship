@@ -14,6 +14,5 @@ urlpatterns = [
     url(r'^student/updatestudent/(?P<pk>[-\w]+)/$', Info_UpdateView.as_view(), name='updatestudent'),
     url (r'contact/$', Home.as_view(),name='home'),
     url (r'pdf/$', GeneratePdf.as_view(),name='pdf'),
-    url (r'pdftemp/$', PdfView.as_view(),name='pdftemp'),
-    
+    url (r'student/pdftemp/(?P<pk>[-\w]+)/$', PdfView.as_view(),name='pdftemp'),
 ]
