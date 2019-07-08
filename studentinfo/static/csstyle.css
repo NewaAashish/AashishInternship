@@ -8,7 +8,7 @@ li a b{
     font-size: 28px;
 }
 body{
-    background-image: url('images/bg.png');
+    background-color: url('images/bg.png');
 }
 
 .add button a{
@@ -47,4 +47,17 @@ h1{
 }
 .head-text{
     font-size: 26px;
+}
+.muli{
+    font-family: 'Muli', sans-serif;
+}
+.pd{
+    padding-left: 8em;
+}
+.pdr{
+    padding-right: 10em;
+}
+.pdl{
+    padding-left: 10em;
+
 }

@@ -17,6 +17,9 @@
     rel="stylesheet">
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link
+    href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Muli|Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800&display=swap"
+    rel="stylesheet">
+  <link
     href="https://fonts.googleapis.com/css?family=Fredoka+One|Montserrat:300,400,700|Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800&display=swap"
     rel="stylesheet">
   {% block extends_css %}
@@ -34,25 +37,25 @@
 
     <!-- Links -->
     <ul class="navbar-nav">
-      <li class="nav-link dance active">Student Grading System</li>
+
       {% if request.user.is_authenticated %}
-      <li class="nav-item">
+      <li class="nav-item pdr pdl">
 
 
-        <a class="nav-link" href="{% url 'add' %}"><i class="fa fa-plus" aria-hidden="true">Add Student</i></a>
+        <a class="nav-link" href="{% url 'add' %}"><i class="fa fa-plus" aria-hidden="true"> Add Student</i></a>
       </li> {% endif %}
+      <li class="nav-link dance active">Student Grading System</li>
 
-      <li class="nav-item">
+      <li class="nav-item pdr pdl">
         <a class="nav-link" href="{% url 'home' %}"><i class="fa fa-phone-square" aria-hidden="true"> Contact Us</i>
         </a>
       </li>
-
-      <li class="nav-item">
+      <li class="nav-item pd">
         {% if request.user.is_authenticated %}
         <a class="nav-link" href="{% url 'account_logout' %}"><i class="fa fa-sign-out"
-            aria-hidden="true">Logout</i></a>
+            aria-hidden="true"> Logout</i></a>
         {% else %}
-        <a class="nav-link" href="{% url 'account_login' %}"><i class="fa fa-sign-out" aria-hidden="true">Login</i></a>
+        <a class="nav-link" href="{% url 'account_login' %}"><i class="fa fa-sign-out" aria-hidden="true"> Login</i></a>
         {% endif %}
       </li>
 
