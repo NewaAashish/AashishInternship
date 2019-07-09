@@ -110,6 +110,13 @@ class Marks_UpdateView(UpdateView):
     def get_success_url(self):
         return reverse_lazy('student-detail', args=(self.object.student_id,))
 
+    def form_valid(self, form):
+        marks = form.save(commit=False)
+        marks.total = marks.english + marks.science + marks.maths + marks.nepali + marks.computer + marks.social + marks.account + marks.eph
+        marks.percent = (marks.total/800)*100
+        marks.save()
+        return super(Marks_UpdateView, self).form_valid(form)
+
 class Home(TemplateView):
     template_name = 'contact.html'
 
@@ -131,6 +138,3 @@ class PdfView(TemplateView):
 #         context['form'] = InfoForm
 #         return context
 
-# class MyFormView(DetailView):
-#     form_class = InfoForm
-#     success_url = reverse_lazy('index')
