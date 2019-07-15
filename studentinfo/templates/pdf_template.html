@@ -1,0 +1,55 @@
+<html>
+
+<head>
+  <title>Test</title>
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    table {
+      border: 1px solid;
+      margin: 0 auto;
+      width: 70%;
+    }
+
+    td,
+    th {
+      text-align: center;
+      border: 1px solid;
+    }
+  </style>
+</head>
+
+<body>
+    {% extends 'base.html'%}
+
+    {% load static %}
+    {% block content %}
+
+  <h1>Student Info</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Batch no</th>
+        <th>Faculty</th>
+        <th>Contact</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in info %}
+      <tr>
+        <td>{{ i.name_text }}sfsf</td>
+        <td>{{ i.batch_no }}</td>
+        <td>{{ i.faculty }}</td>
+        <td>{{ i.contact }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endblock %}
+</body>
+
+</html>

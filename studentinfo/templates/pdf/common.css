@@ -1,0 +1,387 @@
+/*------------------------------------------------------------------
+Common Stylesheet
+
+Project:   Credit Risk Prediction
+Build:     Bootstrap 3 +
+Author:    Savey Chauhan
+Author URL: http://github.com/saveychauhan/
+
+-------------------------------------------------------------------*/
+
+
+
+/* ----------------------------------------------------------------
+    typography
+-----------------------------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+    color: #323232;
+    font-size: 15px;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+
+a:active,
+a:focus {
+    outline: none !important;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #333;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+a:hover,
+a:focus {
+    color: #323232;
+}
+
+a:hover,
+.btn,
+.btn:hover {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+
+a img,
+iframe {
+    border: none !important;
+}
+
+
+p {
+    margin: 0;
+    line-height: 22px;
+    color: black;
+    text-align: justify;
+}
+
+p,
+li {
+    font-family: 'Open Sans', sans-serif;
+}
+
+hr {
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+
+pre {
+    display: block;
+    padding: 10px;
+    margin: 0 0 30px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f9f9f9;
+    border: 1px solid #EDEDED;
+    border-radius: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ----------------------------------------------------------------
+   credit-risk-area
+-----------------------------------------------------------------*/
+.container {
+    max-width: 1125px;
+    margin: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.credit-risk-area {
+    margin-top: -66px;
+}
+
+.credit-risk-area-inner {
+    text-align: center;
+}
+
+.credit-risk-content {
+    border-top: 4px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+.credit-risk-content h1 {
+    font-size: 36px;
+    color: #000;
+    font-weight: 400;
+    padding-top: 10px;
+}
+
+.credit-risk-content h2 {
+    font-size: 24px;
+    color: #000;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.credit-risk-content h3 {
+    font-size: 18px;
+    color: #000;
+    font-weight: 400;
+    padding-bottom: 5px;
+}
+
+.credit-risk-content p {
+    font-size: 16px;
+    color: #000;
+    font-weight: 400;
+    padding-bottom: 5px;
+}
+
+.abstract-area {
+    padding-top: 50px;
+}
+
+.abstract-area h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.abstract-area p {
+    font-size: 16px;
+    line-height: 25px;
+    color: #000;
+    font-weight: 400;
+}
+
+
+.executive-summary-content {
+    padding-top: 20px;
+}
+
+.executive-summary-content img {
+    margin: 15px 0;
+}
+
+.executive-summary-content h2 {
+    font-size: 24px;
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.executive-summary-title h3 {
+    font-size: 18px;
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.executive-summary-title p {
+    font-size: 16px;
+    line-height: 25px;
+    color: #000;
+    font-weight: 400;
+}
+
+.executive-summary-title img {
+    text-align: center;
+}
+
+.single-summary {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.single-summary h2 {
+    font-size: 20px;
+    line-height: 25px;
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.single-summary p {
+    font-size: 16px;
+    line-height: 25px;
+    color: #000;
+    font-weight: 400;
+}
+
+.d-flex {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.single-percentage {
+    padding: 10px;
+    width: 22%;
+}
+
+.single-percentage h3 {
+    color: #707070;
+    font-weight: 400;
+    text-align: center;
+    font-size: 18px;
+}
+
+.single-image {
+    position: relative;
+    text-align: center;
+}
+
+.single-image span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* Responsive Code */
+
+@media only screen and (max-width:575px) {
+    .credit-risk-content h1 {
+        font-size: 30px;
+    }
+
+    .credit-risk-content h2 {
+        font-size: 20px;
+    }
+
+    .credit-risk-content h3 {
+        font-size: 16px;
+    }
+
+    .single-percentage {
+        width: 50%;
+    }
+   
+}@media print {
+  @page {
+    size: potrait;
+    /* size: 215.9mm 279.4mm;  */
+     /* landscape */
+    /* you can al9so specify margins here: */
+    /* margin: 15mm;  */
+    /* margin-right: 45mm;  */
+     /* for compatibility with both A4 and Letter */
+    border-top: 3px solid rgb(0, 0, 0);
+    
+  }
+  @page {
+    @bottom-center { 
+    content: "-" counter(page) "-"; 
+    }
+    }
+ 
+}
+
+.head{
+    color:#4472c4;
+    float: right;
+}
+
+/* h3.head{
+    color:#4472c4;
+    float: right;
+} */
+
+.note{
+    color:#4472c4;
+    font-size: 14px;
+    float: right;
+    
+}
+.head-color{
+    color: #4472c4;
+}
+
+table {
+    border: 1px solid #a4a4a4;
+  }
+
+thead { 
+    color: black;
+}
+
+.ownership{
+    float: right;
+    margin-top: -260px;
+}
+
+.usecase_summary{
+    padding-right: 450px;
+    overflow: auto;
+    padding-bottom: 50px;
+}
+
+.vl {
+    text-align: center;
+    border-right: 3px solid #45a5dd;
+    height: 180px;
+    margin-top: 30px;
+
+  }
+
+.mt{
+    margin-top: 30px;
+}
+
+.mb{
+    margin-bottom: 30px;
+}
+
+.page_break{
+    page-break-before: always;
+}
+
+section{
+    margin-top: 30px;
+}
+
+pre.special{
+    padding-left:30em; font-style: italic; font-size:20px; font-weight: bold;
+}
+
+li.model_usecase{
+    max-width: 400px;
+}

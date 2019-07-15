@@ -3,34 +3,57 @@
 {% load bootstrap4 %}
 
 
-
+{% load crispy_forms_tags %}
 {% block content %}
-<div>
-    <h1 class="fre">UPDATE MARKS HERE:</h1>
 
-</div>
+<h1 class="mar">UPDATE MARKS HERE:</h1>
 <div class="container mar">
-
     <form action="" enctype="multipart/form-data" method="POST">
         {% csrf_token %}
-        {% bootstrap_field form.terminal  field_class="col-3 " %}
-        {% bootstrap_field form.roll  field_class="col-3" %}
-        {% bootstrap_field form.english  field_class="col-3" %}
-        {% bootstrap_field form.science  field_class="col-3" %}
-        {% bootstrap_field form.maths  field_class="col-3" %}
-        {% bootstrap_field form.nepali  field_class="col-3" %}
-        {% bootstrap_field form.computer  field_class="col-3" %}
-        {% bootstrap_field form.social  field_class="col-3" %}
-        {% bootstrap_field form.account  field_class="col-3" %}
-        {% bootstrap_field form.eph  field_class="col-3" %}
-
-
+        <div class="row">
+            <div class="col-6">
+                {{ form.terminal|as_crispy_field }}</div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.english|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.science|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.maths|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.nepali|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.computer|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.social|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.account|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.eph|as_crispy_field }}
+            </div>
+        </div>
+        <br>
         {% bootstrap_button "Save" button_type="submit" button_class="btn-primary btn-lg back-btn" %}
-    </form>
+</div>
+</form>
 
-    <a href="{{request.META.HTTP_REFERER}}">
+<!-- <a href="{{request.META.HTTP_REFERER}}">
         <button class="btn btn-dark btn-md back-btn"><i class="fa fa-arrow-left" aria-hidden="true"> Go back</i>
         </button>
-    </a>
+    </a> -->
 </div>
 {% endblock %}

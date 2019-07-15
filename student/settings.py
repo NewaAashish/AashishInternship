@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'bootstrap4',
     "account",
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,4 @@ ACCOUNT_EMAIL_CONFIRMATION_REQUIRED = False
 ACCOUNT_EMAIL_CONFIRMATION_EMAIL = False
 LOGIN_URL='/account/login/'
 SITE_ID = 1
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

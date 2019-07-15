@@ -6,21 +6,23 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="D:\djangoproject\Project\student\studentinfo\static\invoice.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-
+    <link rel="stylesheet" href="D:\djangoproject\Project\student\studentinfo\templates\pdf\bootstrap.css">
+    <link rel="stylesheet" href="D:\djangoproject\Project\student\studentinfo\templates\pdf\style.css">
+    <link rel="stylesheet" href="D:\djangoproject\Project\student\studentinfo\templates\pdf\common.css">
+    <script src="D:\djangoproject\Project\student\studentinfo\templates\pdf\bootstrap.js"></script>
 
     <title>PDF View</title>
 </head>
 
 <body>
-    {% load static %}
-    {% block content %}
+
     <div>
         <div class="container">
             <div class="card-body bg-info">
-                <h4 class="card-title">{{ studentmarks.name_text }}</h4>
-                <p class="card-text"><b>Batch No: </b> {{ studentmarks.batch_no }} <br>
-                    <b>Faculty: </b> {{ studentmarks.faculty }} <br>
-                    <b>Contact: </b> {{ studentmarks.contact }}</p>
+                <h4 class="card-title">{{ displaymarks.name_text }}</h4>
+                <p class="card-text"><b>Batch No: </b> {{ displaymarks.batch_no }} <br>
+                    <b>Faculty: </b> {{ displaymarks.faculty }} <br>
+                    <b>Contact: </b> {{ displaymarks.contact }}</p>
             </div>
             <div>
                 <h2>First Terminal Result:</h2>
@@ -135,17 +137,17 @@
                         <td>{{ second_term.total }}</td>
 
                     </tr>
-                    
+
                     <tr>
                         <td>Percentage</td>
                         <td>{{ second_term.percent }}%</td>
 
                     </tr>
                     <tr>
-                            <td>Division</td>
-                            <td></td>
-    
-                        </tr>
+                        <td>Division</td>
+                        <td></td>
+
+                    </tr>
 
 
                 </table>
@@ -200,17 +202,17 @@
                         <td>{{ third_term.total }}</td>
 
                     </tr>
-                    
+
                     <tr>
                         <td>Percentage</td>
                         <td>{{ third_term.percent }}%</td>
 
                     </tr>
                     <tr>
-                            <td>Division</td>
-                            <td></td>
-    
-                        </tr>
+                        <td>Division</td>
+                        <td></td>
+
+                    </tr>
 
 
                 </table>
@@ -219,7 +221,6 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    {% endblock %}
 </body>
 
 </html>

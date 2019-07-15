@@ -18,7 +18,7 @@
   <div class="col-7">
     <table class="table table-striped table-hover table-bordered pad js-serial">
       <thead>
-        <tr class="head-text fre">
+        <tr class="head-text muli">
           <th class="col-3">Student List</th>
           <th class="col-3">Action</th>
         </tr>
@@ -27,8 +27,7 @@
       <tbody>
         <tr>
           <td>
-            <a href="{% url 'student-detail' i.pk %}"> <b class="list-name fre text-dark"><i class="fa fa-info-circle"
-                  aria-hidden="true"></i> {{ i.name_text }}</b></a>
+            <a href="{% url 'student-detail' i.pk %}"> <b class="list-name muli text-dark">{{ i.name_text }}</b></a>
           </td>
           <td class="d-flex justify-content-center">
             <a class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="Delete"
@@ -77,8 +76,9 @@
         <li>Generate marksheet of student result</li>
       </ul>
       <br>
-      <div class="container">
-        <h6><b>Supported by:</b></h6>
+      <div>
+        <h3 class="hd"><b>&nbsp;&nbsp;Supported by:</b></h3>
+
         <marquee behavior="sliding" direction="left">Ontreat Services Pvt. Ltd.
           <br>
           Nayabazar, Kathmandu
@@ -120,7 +120,7 @@
         $(this).before('<' + tag + '>S.N.</' + tag + '>');
       });
       $('td:first-child', this).each(function (i) {
-        $(this).before('<td>' + (i + 1) + '</td>');
+        $(this).before('<td><b>' + (i + 1) + '</b></td>');
       });
     });
   }

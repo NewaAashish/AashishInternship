@@ -1,33 +1,62 @@
 {% extends 'base.html'%}
 {% load static %}
 {% load bootstrap4 %}
-
-
-
+{% load crispy_forms_tags %}
 {% block content %}
 <div>
-    <h1 class="fre">Update Student Information:</h1>
+    <h1 class="mar text-center">Update Student Information</h1>
 </div>
 <div class="container mar">
 
     <form action="" enctype="multipart/form-data" method="post">
         {% csrf_token %}
         <!-- {{ form.as_p }} -->
-        {% bootstrap_field form.name_text show_label=False field_class="col-5" %}
-        {% bootstrap_field form.batch_no show_label=False field_class="col-5" %}
-        {% bootstrap_field form.faculty show_label=False field_class="col-5" %}
-        {% bootstrap_field form.contact show_label=False field_class="col-5" %}
-        {% bootstrap_field form.image show_label=False field_class="col-5" %}
-
-        <br>
-        <div class=" row back-btn">
-            <!-- <input type="submit" value="Submit" /> -->
-            {% bootstrap_button "Save" button_type="submit" button_class="btn-primary btn-lg " %}
+        <div class="row">
+            <div class="col-6">
+                {{ form.name_text|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.batch_no|as_crispy_field }}
+            </div>
         </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.faculty|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.contact|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.address|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.email|as_crispy_field }}
+            </div>
+        </div>
+        {% bootstrap_field form.gender field_class="col-5" %}
+        <div class="row">
+            <div class="col-6">
+                {{ form.guardian_name|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.guardian_relation|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.guardian_contact|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.image|as_crispy_field }}
+            </div>
+        </div>
+        {% bootstrap_button "Save" button_type="submit" button_class="btn-primary btn-lg " %}
     </form>
-    <a href="{{request.META.HTTP_REFERER}}">
+    <!-- <a href="{{request.META.HTTP_REFERER}}">
         <button class="btn btn-dark btn-md back-btn"><i class="fa fa-arrow-left" aria-hidden="true"> Go back</i>
         </button>
-    </a>
+    </a> -->
 </div>
 {% endblock %}

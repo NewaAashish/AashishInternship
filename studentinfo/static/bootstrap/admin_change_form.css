@@ -1,0 +1,44 @@
+body{
+    background-color: #f1f1f1;
+}
+.col-sm-12{
+    margin-bottom: 20px;
+}
+.vTextField{
+    width:100%;
+    line-height: 2em;
+    font-size: 20px;
+}
+.btn{
+    border: 1px solid #cccccc;
+}
+.addnew:hover{
+    background-color:#0073aa;
+    color: #ffffff; 
+}
+.media:hover{
+    border: 1px solid #666;
+}
+.card-title{
+    border-bottom: 1px solid #eeeeee;
+}
+select[multiple]{
+    width:93%;
+}
+.submit-row a.deletelink{
+    height: 35px;
+}
+.panel {
+    border-radius: none;
+}
+.img-choose{
+    margin-top: 20px;
+}
+.related-widget-wrapper{
+    overflow: scroll;
+    height: 300px;
+    float: none;
+}
+div[placeholder]:empty:after {
+    content: attr(placeholder);
+   }

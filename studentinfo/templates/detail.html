@@ -2,8 +2,22 @@
 {% load static %}
 {% block content %}
 
-<h1 class="text-center fre">Student Information</h1>
-<div class="container mar">
+    <div>
+        <h1 class="text-center mar">Student Information</h1>
+  </div>
+ 
+
+        <!-- <a href="{{request.META.HTTP_REFERER}}">
+            <button class="btn btn-dark btn-md"><i class="fa fa-arrow-left" aria-hidden="true">
+                    Go
+                    back</i>
+            </button>
+        </a> -->
+   
+
+
+
+<div class="container">
     <div class="row">
         <div class="col-12">
 
@@ -16,31 +30,87 @@
                         <img class="card-img-top" src="{% static 'images/dummyprofile.png' %}" alt="Card image"
                             style="width:50%">
                         {% endif %}
-                        <div class="card-body bg-info">
-                            <h4 class="card-title">{{ studentdetail.name_text }}</h4>
+                        <div class="card-body bg-forcard">
+                            <h4 class="card-title">{{ studentdetail.name_text }} <a class="btn"
+                                    href="{% url 'updatestudent' studentdetail.pk %}"><i style="font-size: 30px;"
+                                        class="fa fa-pencil-square" aria-hidden="true">
+                                    </i>
+                                </a></h4>
                             <p class="card-text"><b>Batch No: </b> {{ studentdetail.batch_no }} <br>
                                 <b>Faculty: </b> {{ studentdetail.faculty }} <br>
-                                <b>Contact: </b> {{ studentdetail.contact }}</p>
+
                         </div>
                     </div>
-                </div>
-                <div class="col-2">
 
                 </div>
-                <div class="container col-5">
-                    <a class="btn btn-primary button-add" href="{% url 'updatestudent' studentdetail.pk %}"><i
-                            class="fa fa-pencil-square" aria-hidden="true">Update Student Info
-                        </i>
-                    </a>
-                    <a class="btn btn-primary" href="{% url 'pdftemp' studentdetail.pk %}"><i class="fa fa-file-pdf-o"
-                            aria-hidden="true"> Generate
-                            PDF</i></a>
-                    <a href="{{request.META.HTTP_REFERER}}">
-                        <button class="btn btn-dark btn-md"><i class="fa fa-arrow-left" aria-hidden="true">
-                                Go
-                                back</i>
-                        </button>
-                    </a>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <h3 class="card-header">Detailed Information
+
+                        </h3>
+                        <table class="table table-striped card-body">
+                            <tr>
+                                <td><b> Student Contact no:</b> </td>
+                                <td>{{ studentdetail.contact }}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Student Email: </b></td>
+                                <td>{{ studentdetail.email }}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Gender: </b></td>
+                                <td>{{ studentdetail.gender }}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Guardian name: </b></td>
+                                <td>{{ studentdetail.guardian_name }}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Guardian Relation: </b></td>
+                                <td>{{ studentdetail.guardian_relation }}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Guardian Contact no: </b></td>
+                                <td>{{ studentdetail.guardian_contact }}</td>
+                            </tr>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="card">
+                        <h3 class="card-header">
+                            Academic Details
+                        </h3>
+                        {% if academic_detail %}
+                        <table class="table table-striped card-body">
+                            <tr>
+                                <td><b>Total Attended Days:</b> </td>
+                                <td>{{ academic_detail.total_attendance }}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Extra Cirruculum Remarks:</b></td>
+                                <td>{{ academic_detail.extra_cirruculum_remarks }} </td>
+                            </tr>
+                            <tr>
+                                <td><b>Academic Activity Remarks:</b></td>
+                                <td>{{ academic_detail.academic_activity_remarks }}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Achievements:</b></td>
+                                <td>{{ academic_detail.achievements }}</td>
+                            </tr>
+                        </table>
+                        {% else %}
+                       <a class="btn btn-primary" href="{% url 'academic' studentdetail.pk %}">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i> Add Academic Details</a>
+                    
+                        {% endif %}
+                    </div>
+
                 </div>
             </div>
 
@@ -57,16 +127,18 @@
             {% endif %}
 
         </div>
-
-
-
-
-
     </div>
     {% if first_term %}
     <div class="container row">
-        <p><b>Marks with * are considered fail.</b></p>
-
+        <div class="col">
+            <p><b>Subjects with * and students with D grade are considered fail.</b></p>
+        </div>
+        {% if first_term and second_term and third_term %}
+        <div class="col d-flex justify-content-end"><a class="btn btn-primary btn-height"
+                href="{% url 'result' studentdetail.pk %}">Generate Final Result</a></div>
+        <div class="col d-flex justify-content-end"><a class="btn btn-primary btn-height"
+                href="{% url 'finalresult' studentdetail.pk %}">View Final Result</a></div>
+        {% endif %}
     </div>
     {% endif %}
 </div>

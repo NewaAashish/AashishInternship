@@ -4,23 +4,23 @@
 <hr>
 </hr>
 <div class="container">
-    <h4 class="fre">Terminal Marks</h4>
+    <h4 class="muli"><b>Terminal Marks</b></h4>
 </div>
 <div class="row">
     <div id="exTab2" class="container ">
-        <ul class="nav nav-tabs">
+        <ul class="nav">
             <li class="active flex-fill">
-                <a class="btn btn-lg btn-info" href="#1" data-toggle="tab">First Terminal</a>
+                <a class="btn btn-lg btn-primary" href="#1" data-toggle="tab">View First Terminal</a>
             </li>
-            <li class="flex-fill d-flex justify-content-center"><a class="btn btn-lg btn-info" href="#2"
-                    data-toggle="tab">Second
+            <li class="flex-fill d-flex justify-content-center"><a class="btn btn-lg btn-primary" href="#2"
+                    data-toggle="tab">View Second
                     Terminal</a>
             </li>
-            <li class="flex-fill d-flex justify-content-end"><a class="btn btn-lg btn-info" href="#3"
-                    data-toggle="tab">Third
+            <li class="flex-fill d-flex justify-content-end"><a class="btn btn-lg btn-primary" href="#3"
+                    data-toggle="tab">View Third
                     Terminal</a>
             </li>
-        </ul>
+        </ul><br>
         <div class="tab-content">
             <div class=" tab-pane active text-center" id="1">
                 <table class="table table-striped table-light table-bordered">
@@ -33,7 +33,7 @@
                             <td style="width: 240px;"></td>
                             <td style="width: 240px;"><a class="btn btn-primary button-add"
                                     href="{% url 'updatemarks' first_term.pk %}">
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true">Update Marks</i>
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"> Update Marks</i>
                                 </a></td>
                         </tr>
                         <tr>
@@ -151,20 +151,20 @@
                             <td>{{ first_term.percent }}%</td>
                         </tr>
                         <tr class="font-weight-bold">
-                            <td>Division</td>
+                            <td>Grade</td>
                             <td>---</td>
                             <td>---</td>
 
                             {% if first_term.percent >= 80 %}
-                            <td>Distinction</td>
+                            <td>A+</td>
                             {% elif first_term.percent >= 65 %}
-                            <td>1st</td>
+                            <td>A</td>
                             {% elif first_term.percent >= 55 %}
-                            <td>2nd</td>
+                            <td>B</td>
                             {% elif first_term.percent >= 40 %}
-                            <td>3rd</td>
+                            <td>C</td>
                             {% else %}
-                            <td>Fail</td>
+                            <td>D</td>
 
                             {% endif %}
 
@@ -173,7 +173,7 @@
                 </table>
             </div>
             <div class="tab-pane text-center" id="2">
-                <table class="table table-striped table-light">
+                <table class="table table-striped table-light table-bordered">
                     <thead>
                         <tr>
                             <td style="width: 240px;">
@@ -306,20 +306,20 @@
 
                         </tr>
                         <tr class="font-weight-bold">
-                            <td>Division</td>
+                            <td>Grade</td>
                             <td>---</td>
                             <td>---</td>
 
                             {% if second_term.percent >= 80 %}
-                            <td>Distinction</td>
+                            <td>A+</td>
                             {% elif second_term.percent >= 65 %}
-                            <td>1st</td>
+                            <td>A</td>
                             {% elif second_term.percent >= 55 %}
-                            <td>2nd</td>
+                            <td>B</td>
                             {% elif second_term.percent >= 40 %}
-                            <td>3rd</td>
+                            <td>C</td>
                             {% else %}
-                            <td>Fail</td>
+                            <td>D</td>
                             {% endif %}
 
                         </tr>
@@ -327,7 +327,7 @@
                 </table>
             </div>
             <div class="tab-pane text-center" id="3">
-                <table class="table table-striped table-light">
+                <table class="table table-striped table-light table-bordered">
                     <thead>
                         <tr>
                             <td style="width: 240px;">
@@ -367,7 +367,6 @@
                             <td>
                                 {{ third_term.english }} *</td>
                             {% endif %}
-
                         </tr>
                         <tr>
                             <td>Science</td>
@@ -463,20 +462,20 @@
 
                         </tr>
                         <tr class="font-weight-bold" s>
-                            <td>Division</td>
+                            <td>Grade</td>
                             <td>---</td>
                             <td>---</td>
 
                             {% if third_term.percent >= 80 %}
-                            <td>Distinction</td>
+                            <td>A+</td>
                             {% elif third_term.percent >= 65 %}
-                            <td>1st</td>
+                            <td>A</td>
                             {% elif third_term.percent >= 55 %}
-                            <td>2nd</td>
+                            <td>B</td>
                             {% elif third_term.percent >= 40 %}
-                            <td>3rd</td>
+                            <td>C</td>
                             {% else %}
-                            <td>Fail</td>
+                            <td>D</td>
                             {% endif %}
 
                         </tr>

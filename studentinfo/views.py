@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Info, Marks
+from .models import Info, Marks, Final, AcademicExtra
 from django.urls import reverse_lazy
 from django.views.generic.edit import DeleteView, FormView, UpdateView
 from django.views.generic import ListView, DetailView, View
-from studentinfo.forms import InfoForm, MarksForm
+from studentinfo.forms import InfoForm, MarksForm, FinalForm, AcademicForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.base import TemplateView
 from django.db.models import Q, F
@@ -16,7 +16,13 @@ from django.template import Context
 from cgi import escape
 from .utils import render_to_pdf 
 from reportlab.pdfgen import canvas  
-  
+from django.core.files.storage import FileSystemStorage
+from django.template.loader import render_to_string
+from weasyprint import HTML, CSS
+from django.template import RequestContext
+import tempfile
+import math
+
 # Create your views here.
 class Info_ListView(LoginRequiredMixin, ListView):
     model = Info
@@ -45,6 +51,10 @@ class Info_DetailView(DetailView):
                 student=self.kwargs['pk'], terminal='third_term').latest('id')
         except:
             context['third_term'] = False
+        try:
+            context['academic_detail']= AcademicExtra.objects.filter(student__id=self.kwargs['pk']).latest('id')
+        except:
+            context['academic_detail']= False
         return context
 
 class Info_DeleteView(DeleteView):
@@ -75,7 +85,7 @@ class Info_UpdateView(UpdateView):
 class Marks_MarksView(FormView):
     template_name = 'marks.html'
     form_class = MarksForm
-
+    
     def get_success_url(self):
         return reverse_lazy('student-detail', args=(self.kwargs['student_id'],))
 
@@ -83,7 +93,7 @@ class Marks_MarksView(FormView):
         marks = form.save(commit=False)
         marks.student = Info.objects.get(id=self.kwargs['student_id'])
         marks.total = marks.english + marks.science + marks.maths + marks.nepali + marks.computer + marks.social + marks.account + marks.eph
-        marks.percent = (marks.total/800)*100
+        marks.percent = float(math.ceil((marks.total/800)*100))
         marks.save()
         return super(Marks_MarksView, self).form_valid(form)
 
@@ -120,21 +130,85 @@ class Marks_UpdateView(UpdateView):
 class Home(TemplateView):
     template_name = 'contact.html'
 
-class GeneratePdf(View):
-     def get(self, request, *args, **kwargs):
+class Final_Result(TemplateView):
+    model = Final
+    form_class = FinalForm
+    template_name = 'final_result.html'
+    context_object_name = 'finalmarks'
+
+    def get_context_data(self, **kwargs):
+        context = super(Final_Result, self).get_context_data(**kwargs)
+        context['displaymarks'] = Final.objects.filter(student__id=self.kwargs['pk']).latest('id')
+        context['student'] = Info.objects.get(id=self.kwargs['pk'])
+        return context
+
+class Result(Info_DetailView):
+    def dispatch(self, request, **kwargs):
+        try:
+            first_term = Marks.objects.filter(
+                student=self.kwargs['pk'], terminal='first_term').latest('id')
+        except:
+            first_term = False
+        try:
+            second_term = Marks.objects.filter(
+                student=self.kwargs['pk'], terminal='second_term').latest('id')
+        except:
+            second_term = False
+        try:
+            third_term = Marks.objects.filter(
+                student=self.kwargs['pk'], terminal='third_term').latest('id')
+        except:
+            third_term = False
         
-        #getting the template
-        pdf = render_to_pdf('invoice.html')
-         
-         #rendering the template
-        return HttpResponse(pdf, content_type='application/pdf')
 
-class PdfView(TemplateView):
-    model = Marks
-    template_name = 'invoice.html'
+        # getmarks
+        if first_term and second_term and third_term:
+            english= (first_term.english/100*10)+(second_term.english/100*10)+(third_term.english/100*80)
+            science= (first_term.science/100*10)+(second_term.science/100*10)+(third_term.science/100*80)
+            maths= (first_term.maths/100*10)+(second_term.maths/100*10)+(third_term.maths/100*80)
+            social= (first_term.social/100*10)+(second_term.social/100*10)+(third_term.social/100*80)
+            eph= (first_term.eph/100*10)+(second_term.eph/100*10)+(third_term.eph/100*80)
+            computer= (first_term.computer/100*10)+(second_term.computer/100*10)+(third_term.computer/100*80)
+            nepali= (first_term.nepali/100*10)+(second_term.nepali/100*10)+(third_term.nepali/100*80)
+            account= (first_term.account/100*10)+(second_term.account/100*10)+(third_term.account/100*80)
+            total=english+science+maths+social+eph+computer+nepali+account
+            percent=(total/800)*100
+            if percent >= 80:
+                remark = 'Very good'
+            elif percent >= 70:
+                remark = 'Good'
+            elif percent >= 60:
+                remark = 'Satisfactory'
+            else:
+                remark = 'Needs Improvement'
 
-#     def get_context_data(self, **kwargs):
-#         context = super(PdfView, self).get_context_data(**kwargs)
-#         context['form'] = InfoForm
-#         return context
 
+        remark='Satisfactory'
+        Final.objects.create(
+            student = Info.objects.get(id=self.kwargs['pk']),
+            final_english = english,
+            final_science = science,
+            final_maths = maths,
+            final_social = social,
+            final_computer = computer,
+            final_eph = eph,
+            final_account = account,
+            final_nepali = nepali,
+            final_total = total,
+            final_percent = float(math.ceil(percent)),
+            final_remarks = remark,
+        )
+        
+        return HttpResponseRedirect(reverse_lazy('student-detail', args=(self.kwargs['pk'],)))
+
+class Academic_Extra(FormView):
+    template_name = 'academic_extra.html'
+    form_class = AcademicForm
+    success_url = reverse_lazy('index')
+    context_object_name = 'academic'
+
+    def form_valid(self, form):
+        detail = form.save(commit=False)
+        detail.student = Info.objects.get(id=self.kwargs['student_id'])
+        detail.save()
+        return super(Academic_Extra, self).form_valid(form)

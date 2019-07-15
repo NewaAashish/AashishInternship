@@ -2,6 +2,7 @@
     margin-top:0; }
 .mar{
     margin-top: 3%;
+    margin-bottom: 3%;
 }
 li a b{
     font-weight: bold;
@@ -68,4 +69,19 @@ h1{
     left: 15vh;
     padding-left: 10px;
     padding-right: 20px;
+}
+.bg-forcard{
+    background-color: #dee2e6;
+}
+u {    
+    border-bottom: 2px dotted gray;
+    text-decoration: none;
+}
+.rotate {
+    transform: rotate(90deg);
+    text-align: center;
+    margin-top: 40px;
+}    
+.btn-height{
+    height: 40px;
 }

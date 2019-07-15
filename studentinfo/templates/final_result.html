@@ -1,0 +1,180 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+{% load bootstrap4 %}
+<div class="container muli">
+    <div class="row"><div class="col-3">
+        <img src="{% static 'images\logo.png' %}" alt="">
+    </div>
+    <div class="col-9">
+        <h1 class="mar"><b>Examination Board of Nepal</b></h1>
+        <p style="padding-left: 18%;">(Afflicated to Education Board of Nepal)</p></div>
+    </div>
+    <div>
+        <h2 class="text-center"><b>Mark-Sheet</b></h2>
+        <p>
+            <b>Marks secured by </b><u>{{ student.name_text }}</u> <br>
+            <b>Roll no </b><u>{{ student.roll }} </u>&emsp;<b> Grade </b><u>10</u><br>
+            <b>School </b><u>ABC Higher Secondary School, Nayabazar, Kathmandu </u> <br>
+            <b>Batch of </b><u>{{ student.batch_no }}</u> <br>
+        </p>
+    </div>
+    <div class="text-center">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Full Marks</th>
+                    <th>Pass Marks</th>
+                    <th>Final Result</th>
+                    <th style="width: 6%;">Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>English</td>
+                    <td>100</td>
+                    <td>40</td>
+                    {% if displaymarks.final_english >= 40 %}
+                    <td>{{ displaymarks.final_english }}</td>
+                    {% else %}
+                    <td>
+                        {{ displaymarks.final_english }} *</td>
+                    {% endif %}
+                    <td rowspan="11"><p class="rotate">{{ displaymarks.final_remarks }}</p></td>
+                </tr>
+                <tr>
+                    <td>Science</td>
+                    <td>100</td>
+                    <td>40</td>
+                    {% if displaymarks.final_science >= 40 %}
+                    <td>{{ displaymarks.final_science }}</td>
+                    {% else %}
+                    <td>
+                        {{ displaymarks.final_science }} *</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>Maths</td>
+                    <td>100</td>
+                    <td>40</td>
+                    {% if displaymarks.final_maths >= 40 %}
+                    <td>{{ displaymarks.final_maths }}</td>
+                    {% else %}
+                    <td>{{ displaymarks.final_maths }} *</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>Nepali</td>
+                    <td>100</td>
+                    <td>40</td>
+                    {% if displaymarks.final_nepali >= 40 %}
+                    <td>{{ displaymarks.final_nepali }}</td>
+                    {% else %}
+                    <td>{{ displaymarks.final_nepali }} *</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>Computer</td>
+                    <td>100</td>
+                    <td>40</td>
+                    {% if displaymarks.final_computer >= 40 %}
+                    <td>{{ displaymarks.final_computer }}</td>
+                    {% else %}
+                    <td>{{ displaymarks.final_computer }} *</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>Social</td>
+                    <td>100</td>
+                    <td>40</td>
+                    {% if displaymarks.final_social >= 40 %} <td>{{ displaymarks.final_social }}</td>
+                    {% else %}
+                    <td>{{ displaymarks.final_social }} *</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>Account</td>
+                    <td>100</td>
+                    <td>40</td>
+                    {% if displaymarks.final_account >= 40 %}
+                    <td>{{ displaymarks.final_account }}</td>
+                    {% else %}
+                    <td>{{ displaymarks.final_account }} *</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>EPH</td>
+                    <td>100</td>
+                    <td>40</td>
+                    {% if displaymarks.final_eph >= 40 %}
+                    <td>{{ displaymarks.final_eph }}</td>
+                    {% else %}
+                    <td>{{ displaymarks.final_eph }} *</td>
+                    {% endif %}
+                </tr>
+                <tr class="font-weight-bold">
+                    <td>Grand Total</td>
+                    <td>800</td>
+                    <td>320</td>
+
+                    <td>{{ displaymarks.final_total }}</td>
+                </tr>
+                <tr class="font-weight-bold">
+                    <td>Percentage</td>
+                    <td>100%</td>
+                    <td>40%</td>
+
+                    <td>{{ displaymarks.final_percent }}%</td>
+                </tr>
+                <tr class="font-weight-bold" s>
+                    <td>Grade</td>
+                    <td>---</td>
+
+                    <td>---</td>
+                    {% if displaymarks.final_percent >= 80 %}
+                    <td>A+</td>
+                    {% elif displaymarks.final_percent >= 65 %}
+                    <td>A</td>
+                    {% elif displaymarks.final_percent >= 55 %}
+                    <td>B</td>
+                    {% elif displaymarks.final_percent >= 40 %}
+                    <td>C</td>
+                    {% else %}
+                    <td>D</td>
+                    {% endif %}
+                </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+    <div>
+        <div class="d-flex justify-content-start"><span
+                style="border-bottom: 1px solid black; padding-left: 50px">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+        </div>
+        <div class="d-flex justify-content-end"><span
+                style="border-bottom: 1px solid black; padding-left: 50px">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+        </div>
+        <div class="d-flex justify-content-start"><b>&emsp;&emsp;Checked By</b></div>
+        <div class="d-flex justify-content-end"><b>Principal &emsp;&emsp;</b></div>
+    </div>
+    <div>
+        <b>Date&emsp;</b>{% now "jS F Y" %}
+    </div>
+    <div class="row">
+        <div class="col-sm-6 d-flex justify-content-start">
+            <ul style="list-style: none; padding: 0px !important;">
+                <li><b>A+&emsp; = &emsp;</b>Distinction</li>
+                <li><b>A&ensp;&emsp; = &emsp;</b>1st division</li>
+                <li><b>B&ensp;&emsp; = &emsp;</b>2nd division</li>
+            </ul>
+        </div>
+        <div class="col-sm-6 d-flex justify-content-end">
+            <ul style="list-style: none;">
+                <li><b>C&ensp;&emsp; = &emsp;</b>3rd division</li>
+                <li><b>D and asterisk (*)&emsp;Fail</b></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

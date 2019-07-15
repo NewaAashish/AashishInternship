@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load bootstrap4 %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div>
+    <h1 class="fre">Academic Details</h1>
+</div>
+<div class="container mar">
+
+    <form action="" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+
+        {{ form|crispy }}
+        {% bootstrap_button "Save" button_type="submit" button_class="btn-primary btn-lg" %}
+
+    </form>
+    <!-- <a href="{{request.META.HTTP_REFERER}}">
+        <button class="btn btn-dark btn-md back-btn"><i class="fa fa-arrow-left" aria-hidden="true"> Go back</i>
+        </button>
+    </a> -->
+</div>
+{% endblock %}

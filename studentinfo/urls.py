@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from . views import Info_ListView, Info_DetailView, Info_DeleteView, Info_FormView, Marks_MarksView, Marks_ListView, Marks_DisplayView, Marks_UpdateView, Info_UpdateView, Home, GeneratePdf, PdfView
+from . views import Info_ListView, Info_DetailView, Info_DeleteView, Info_FormView, Marks_MarksView, Marks_ListView, Marks_DisplayView, Marks_UpdateView, Info_UpdateView, Home, Result, Final_Result, Academic_Extra
 from django.contrib.auth.views import login
 
 urlpatterns = [
@@ -13,6 +13,10 @@ urlpatterns = [
     url(r'^student/update/(?P<pk>[-\w]+)/$', Marks_UpdateView.as_view(), name='updatemarks'),
     url(r'^student/updatestudent/(?P<pk>[-\w]+)/$', Info_UpdateView.as_view(), name='updatestudent'),
     url (r'contact/$', Home.as_view(),name='home'),
-    url (r'pdf/$', GeneratePdf.as_view(),name='pdf'),
-    url (r'student/pdftemp/(?P<pk>[-\w]+)/$', PdfView.as_view(),name='pdftemp'),
+    # url (r'pdf/(?P<pk>[-\w]+)/$', GeneratePdf.as_view(),name='pdf'),
+    # url (r'student/pdftemp/(?P<pk>[-\w]+)/$', PdfView.as_view(),name='pdf'),
+    # url(r'^student/detail/pdf/(?P<pk>[-\w]+)/$', GeneratePdf.as_view(), name='pdftemp'),
+    url(r'^student/finalresult/(?P<pk>[-\w]+)/$', Final_Result.as_view(), name='finalresult'),
+    url(r'^student/result/(?P<pk>[-\w]+)/$', Result.as_view(), name='result'),
+    url(r'^student/academic/(?P<student_id>[-\w]+)/$', Academic_Extra.as_view(), name='academic'),
 ]
