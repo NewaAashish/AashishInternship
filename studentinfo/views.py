@@ -22,6 +22,9 @@ from weasyprint import HTML, CSS
 from django.template import RequestContext
 import tempfile
 import math
+import xhtml2pdf.pisa as pisa
+from django.utils import timezone
+
 
 # Create your views here.
 class Info_ListView(LoginRequiredMixin, ListView):
@@ -212,3 +215,35 @@ class Academic_Extra(FormView):
         detail.student = Info.objects.get(id=self.kwargs['student_id'])
         detail.save()
         return super(Academic_Extra, self).form_valid(form)
+
+# For PDF #
+
+class Render:
+
+    @staticmethod
+    def render(path: str, params: dict):
+        template = get_template(path)
+        html = template.render(params)
+        response = BytesIO()
+        pdf = pisa.pisaDocument(BytesIO(html.encode("UTF-8")), response)
+        if not pdf.err:
+            return HttpResponse(response.getvalue(), content_type='application/pdf')
+        else:
+            return HttpResponse("Error Rendering PDF", status=400)
+
+class Pdf(View):
+
+    def get(self, request):
+        final = Final.objects.all()
+        # params = {
+        #     'student': student,
+        #     'final_english': final_english,
+        #     'final_science': final_science,
+        #     'final_maths': final_maths,
+        #     'final_nepali': final_nepali,
+        #     'final_computer': final_computer,
+        #     'final_social': final_social,
+        #     'final_eph': final_eph,
+        #     'final_account': final_account,
+        # }
+        return render_to_pdf('pdf.html')

@@ -7,7 +7,7 @@
             <div class="col-sm-8 col-lg-5 g-bg-white">
                 <div class="u-shadow-v21 rounded g-py-40">
                     <header class="text-center mb-4">
-                        <h2 class="h2 g-color-black g-font-weight-600"> Signup</h2>
+                        <h2 class="h2 g-color-black g-font-weight-600 mar"> Signup</h2>
                     </header>
                     <form id="signup_form" class="g-py-15" method="post" action="" {% if stripe_public_key %} data-stripe-key="{{ stripe_public_key }}" {% endif %} novalidate>
                         {% if current_plan.stripe_id == free_plan %}

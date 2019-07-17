@@ -9,7 +9,8 @@ li a b{
     font-size: 28px;
 }
 body{
-    background-color: url('images/bg.png');
+    /* background-image: url('images/bg.png'); */
+    background-color: white;
 }
 
 .add button a{
@@ -84,4 +85,37 @@ u {
 }    
 .btn-height{
     height: 40px;
+}
+/* Scroll */
+.scroll {
+width: 100px;
+height: 100px;
+
+    animation: move 1s infinite alternate;
+}
+
+@keyframes move {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(20px);
+    }
+}
+.scrolled{
+    max-height: 490px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.info_table{
+    height: 72px;
+}
+.academic_table{
+    height: 109px;
+}
+.table_bg{
+  background-image: url('images/logo.jpg');;
+  background-repeat: no-repeat;
+  
+  background-position: center; 
 }

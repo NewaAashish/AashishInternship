@@ -1,37 +1,42 @@
 {% extends 'base.html'%}
 {% load static %}
 {% load bootstrap4 %}
-
 {% block content %}
 
-<!-- <h3>Search</h3>
 {% csrf_token %}
-<input type="search" id="search" name="search">
-<ul id="search-results"></ul> -->
-<!-- <div class="pad"><input type="text" name="search" id="txtSearch" onkeyup="searchOpen()" /><button><i
-      class="fa fa-search" aria-hidden="true"></i></button>
-</div> -->
 
 <!-- Student List Start -->
 <div class="row justify-content-start mar" style="width: 100%;">
   <!-- <ul style="list-style-type:none;"> -->
-  <div class="col-7">
+  <div class="col-6 scrolled">
     <table class="table table-striped table-hover table-bordered pad js-serial">
       <thead>
         <tr class="head-text muli">
+          <th class="col-1" style="width:110px;">Photo</th>
           <th class="col-3">Student List</th>
-          <th class="col-3">Action</th>
+          <th class="col-2">Action</th>
         </tr>
       </thead>
       {% for i in infolist %}
       <tbody>
         <tr>
+            <td>
+                <div style="height:60px;">
+                {% if i.image %}
+                <img class="card-img-top" src="{{ i.image.url }}" alt="Card image" style="height:58px;">
+                {% else %}
+                <img class="card-img-top" src="{% static 'images/dummyprofile.png' %}" alt="Card image"
+                    >
+                {% endif %}
+              </div>
+              </td>
           <td>
             <a href="{% url 'student-detail' i.pk %}"> <b class="list-name muli text-dark">{{ i.name_text }}</b></a>
           </td>
+          
           <td class="d-flex justify-content-center">
-            <a class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="Delete"
-              href="{% url 'delete' i.pk %}"><i class="fa fa-trash-o" style="font-size:26px"></i></a>
+            <a class="btn" data-toggle="tooltip" data-placement="right" title="Delete"
+              href="{% url 'delete' i.pk %}"><i class="fa fa-trash" style="font-size:44px; color: crimson;"></i></a>
           </td>
         </tr>
       </tbody>
@@ -57,8 +62,10 @@
     </table>
 
   </div>
-  <div class="col"></div>
-  <div class="col-4 justify-content-end">
+  <div class="col-1 align-self-center">
+    <img src="{% static 'images\mouse.png' %}" alt="scroll down" class="scroll">
+</div>
+  <div class="col-5 justify-content-end">
     <div class="container muli">
       <h3 class=" hd"><b>&nbsp;&nbsp;How to Use</b></h3>
       <ul>

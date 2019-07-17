@@ -23,7 +23,7 @@
 
             <div class="row">
                 <div class="col-4">
-                    <div class="card text-center">
+                    <div class="card text-center" style="height: 100%;">
                         {% if studentdetail.image %}
                         <img class="card-img-top" src="{{ studentdetail.image.url }}" alt="Card image">
                         {% else %}
@@ -44,32 +44,32 @@
 
                 </div>
                 <div class="col-sm-4">
-                    <div class="card">
+                    <div class="card" style="height: 100%;">
                         <h3 class="card-header">Detailed Information
 
                         </h3>
                         <table class="table table-striped card-body">
-                            <tr>
+                            <tr class="info_table">
                                 <td><b> Student Contact no:</b> </td>
                                 <td>{{ studentdetail.contact }}</td>
                             </tr>
-                            <tr>
+                            <tr class="info_table">
                                 <td><b>Student Email: </b></td>
                                 <td>{{ studentdetail.email }}</td>
                             </tr>
-                            <tr>
+                            <tr class="info_table">
                                 <td><b>Gender: </b></td>
                                 <td>{{ studentdetail.gender }}</td>
                             </tr>
-                            <tr>
+                            <tr class="info_table">
                                 <td><b>Guardian name: </b></td>
                                 <td>{{ studentdetail.guardian_name }}</td>
                             </tr>
-                            <tr>
+                            <tr class="info_table">
                                 <td><b>Guardian Relation: </b></td>
                                 <td>{{ studentdetail.guardian_relation }}</td>
                             </tr>
-                            <tr>
+                            <tr class="info_table">
                                 <td><b>Guardian Contact no: </b></td>
                                 <td>{{ studentdetail.guardian_contact }}</td>
                             </tr>
@@ -81,25 +81,25 @@
                 </div>
 
                 <div class="col-sm-4">
-                    <div class="card">
+                    <div class="card" style="height: 100%;">
                         <h3 class="card-header">
                             Academic Details
                         </h3>
                         {% if academic_detail %}
                         <table class="table table-striped card-body">
-                            <tr>
+                            <tr class="academic_table">
                                 <td><b>Total Attended Days:</b> </td>
                                 <td>{{ academic_detail.total_attendance }}</td>
                             </tr>
-                            <tr>
+                            <tr class="academic_table">
                                 <td><b>Extra Cirruculum Remarks:</b></td>
                                 <td>{{ academic_detail.extra_cirruculum_remarks }} </td>
                             </tr>
-                            <tr>
+                            <tr class="academic_table">
                                 <td><b>Academic Activity Remarks:</b></td>
                                 <td>{{ academic_detail.academic_activity_remarks }}</td>
                             </tr>
-                            <tr>
+                            <tr class="academic_table">
                                 <td><b>Achievements:</b></td>
                                 <td>{{ academic_detail.achievements }}</td>
                             </tr>
