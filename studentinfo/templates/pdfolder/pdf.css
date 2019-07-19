@@ -1,0 +1,82 @@
+@page {
+    size: A4;
+    margin: 1cm;
+}
+
+h1 {
+    text-align: left;
+    font-size: 25px;
+}
+h2{
+    font-size: 18px;
+    text-align: center;
+}
+.center {
+    text-align: center;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 5px;
+    background-color: #fff;
+}
+.table th,
+.table td {
+    padding-top: 8px;
+    padding-bottom: 5px;
+    vertical-align: top;
+    border: 1px solid rgb(107, 104, 104);
+    text-align: center;
+}
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #000;
+}
+
+.table tbody+tbody {
+    border-top: 2px solid #000;
+    background-image: url('file:\\\D:\djangoproject\\Project\\student\\studentinfo\\static\\images\\logotrans.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.table .table {
+    background-color: #fff;
+}
+
+.list-group {
+    display: block;
+    width: 100%;
+    list-style: none;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.list-group p {
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    list-style: none;
+    font-size: 1.1em;
+}
+
+.rotate {
+    transform: rotate(90deg) !important;
+    text-align: center;
+    margin-top: 40px;
+}   
+
+.align-right {
+    text-align: right;
+}
+.logosize{
+    width:150px;
+    height: 150px;
+}
+table .table_bg{
+    background-image: url('D:\djangoproject\Project\student\studentinfo\static\images\logotrans.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}

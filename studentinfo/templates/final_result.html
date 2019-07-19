@@ -3,12 +3,14 @@
 {% block content %}
 {% load bootstrap4 %}
 <div class="container muli">
-    <div class="row"><div class="col-3">
-        <img src="{% static 'images\logo1.png' %}" alt="">
-    </div>
-    <div class="col-9">
-        <h1 class="mar"><b>Examination Board of Nepal</b></h1>
-        <p style="padding-left: 18%;">(Afflicated to Education Board of Nepal)</p></div>
+    <div class="row">
+        <div class="col-3">
+            <img src="{% static 'images\logo1.png' %}" alt="">
+        </div>
+        <div class="col-9">
+            <h1 class="mar"><b>Examination Board of Nepal</b></h1>
+            <p style="padding-left: 18%;">(Afflicated to Education Board of Nepal)</p>
+        </div>
     </div>
     <div>
         <h2 class="text-center"><b>Mark-Sheet</b></h2>
@@ -41,7 +43,9 @@
                     <td>
                         {{ displaymarks.final_english }} *</td>
                     {% endif %}
-                    <td rowspan="11"><p class="rotate">{{ displaymarks.final_remarks }}</p></td>
+                    <td rowspan="11">
+                        <p class="rotate">{{ displaymarks.final_remarks }}</p>
+                    </td>
                 </tr>
                 <tr>
                     <td>Science</td>
@@ -175,6 +179,9 @@
                 <li><b>D and asterisk (*)&emsp;Fail</b></li>
             </ul>
         </div>
+        <div class="col d-flex justify-content-end"><a class="btn btn-primary btn-height"
+                href="{% url 'pdf_generate' %}?query={{student.id}}">Generate PDF</a></div>
     </div>
+
 </div>
 {% endblock %}

@@ -25,7 +25,6 @@ import math
 import xhtml2pdf.pisa as pisa
 from django.utils import timezone
 
-
 # Create your views here.
 class Info_ListView(LoginRequiredMixin, ListView):
     model = Info
@@ -217,7 +216,6 @@ class Academic_Extra(FormView):
         return super(Academic_Extra, self).form_valid(form)
 
 # For PDF #
-
 class Render:
 
     @staticmethod
@@ -232,18 +230,17 @@ class Render:
             return HttpResponse("Error Rendering PDF", status=400)
 
 class Pdf(View):
-
+    model = Final, Info
     def get(self, request):
-        final = Final.objects.all()
-        # params = {
-        #     'student': student,
-        #     'final_english': final_english,
-        #     'final_science': final_science,
-        #     'final_maths': final_maths,
-        #     'final_nepali': final_nepali,
-        #     'final_computer': final_computer,
-        #     'final_social': final_social,
-        #     'final_eph': final_eph,
-        #     'final_account': final_account,
-        # }
-        return render_to_pdf('pdf.html')
+        final = Final.objects.filter(student=request.GET.get('query')).latest('id')
+        info = Info.objects.filter(id=request.GET.get('query')).latest('id')
+        today = timezone.now()
+        params = {
+            'today': today,
+            'final': final,
+            'info': info,
+        }
+        return Render.render('pdfolder\pdf.html', params)
+
+class Pdftemp(TemplateView):
+    template_name = 'pdf.html'

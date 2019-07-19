@@ -48,7 +48,7 @@ h1{
     font-size: 22px;
 }
 .head-text{
-    font-size: 26px;
+    font-size: 20px;
 }
 .muli{
     font-family: 'Muli', sans-serif;
@@ -64,12 +64,12 @@ h1{
 
 }
 .hd{
-    background-color: #343A40;
+    background-color: #195637; 
     color: white;
     width: 100%;
     left: 15vh;
-    padding-left: 10px;
-    padding-right: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
 }
 .bg-forcard{
     background-color: #dee2e6;
@@ -114,8 +114,24 @@ height: 100px;
     height: 109px;
 }
 .table_bg{
-  background-image: url('images/logo.jpg');;
-  background-repeat: no-repeat;
-  
-  background-position: center; 
+    background-image: url('images/logo.jpg');
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+.login_bg{
+    background-image: url('images/blur.jpg');
+    color: white;
+}
+.login_bg a{
+    color: white;
+}
+.sign_up{
+    color: rgb(43, 34, 173) !important;
+}
+.nav_bg{
+    background-color: #195637;
+}
+.thead_bg{
+    background-color: #195637;
+    color: white;
 }

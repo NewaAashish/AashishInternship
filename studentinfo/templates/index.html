@@ -8,35 +8,34 @@
 <!-- Student List Start -->
 <div class="row justify-content-start mar" style="width: 100%;">
   <!-- <ul style="list-style-type:none;"> -->
-  <div class="col-6 scrolled">
-    <table class="table table-striped table-hover table-bordered pad js-serial">
-      <thead>
-        <tr class="head-text muli">
+  <div class="col-6 scrolled muli">
+    <table class="table table-striped table-hover pad js-serial">
+      <thead class="thead_bg">
+        <tr class="head-text">
           <th class="col-1" style="width:110px;">Photo</th>
           <th class="col-3">Student List</th>
           <th class="col-2">Action</th>
         </tr>
       </thead>
       {% for i in infolist %}
-      <tbody>
+      <tbody class="table-bordered ">
         <tr>
-            <td>
-                <div style="height:60px;">
-                {% if i.image %}
-                <img class="card-img-top" src="{{ i.image.url }}" alt="Card image" style="height:58px;">
-                {% else %}
-                <img class="card-img-top" src="{% static 'images/dummyprofile.png' %}" alt="Card image"
-                    >
-                {% endif %}
-              </div>
-              </td>
+          <td>
+            <div style="height:60px;">
+              {% if i.image %}
+              <img class="card-img-top" src="{{ i.image.url }}" alt="Card image" style="height:60px; width: 60px;">
+              {% else %}
+              <img class="card-img-top" src="{% static 'images/dummyprofile.png' %}" alt="Card image">
+              {% endif %}
+            </div>
+          </td>
           <td>
             <a href="{% url 'student-detail' i.pk %}"> <b class="list-name muli text-dark">{{ i.name_text }}</b></a>
           </td>
-          
+
           <td class="d-flex justify-content-center">
-            <a class="btn" data-toggle="tooltip" data-placement="right" title="Delete"
-              href="{% url 'delete' i.pk %}"><i class="fa fa-trash" style="font-size:44px; color: crimson;"></i></a>
+            <a class="btn" data-toggle="tooltip" data-placement="right" title="Delete" href="{% url 'delete' i.pk %}"><i
+                class="fa fa-trash" style="font-size:44px; color: crimson;"></i></a>
           </td>
         </tr>
       </tbody>
@@ -64,34 +63,39 @@
   </div>
   <div class="col-1 align-self-center">
     <img src="{% static 'images\mouse.png' %}" alt="scroll down" class="scroll">
-</div>
+  </div>
   <div class="col-5 justify-content-end">
     <div class="container muli">
-      <h3 class=" hd"><b>&nbsp;&nbsp;How to Use</b></h3>
-      <ul>
-        <li>Add a new student</li>
-        <li>Input all their details</li>
-        <li>Add marks for student by clicking the name in list</li>
-        <li>Input marks according to terminal exam</li>
-        <li>Save</li>
-        <br><br>
+      <h3 class=" hd"><b>HOW TO USE</b></h3>
+      <ul><b>
+          <li>Add a new student</li>
+          <li>Input all their details</li>
+          <li>Add marks for student by clicking the name in list</li>
+          <li>Input marks according to terminal exam</li>
+          <li>Save</li>
+          <li>After all 3 terms marks are inputted, Generate Final Report</li>
+          <li>View Final Report</li>
+          <li>Generate PDF</li>
+        </b>
       </ul>
-      <h3 class="hd"><b>&nbsp;&nbsp;What it can do</b></h3>
-      <ul>
-        <li>Add and update student details</li>
-        <li>Add update and calculate student marks</li>
-        <li>Generate marksheet of student result</li>
+      <h3 class="hd"><b>WHAT IT CAN DO</b></h3>
+      <ul><b>
+          <li>Add and update student details</li>
+          <li>Add, update and calculate student marks</li>
+          <li>Generate marksheet of student result</li>
+        </b>
       </ul>
-      <br>
-      <div>
-        <h3 class="hd"><b>&nbsp;&nbsp;Supported by:</b></h3>
 
-        <marquee behavior="sliding" direction="left">Ontreat Services Pvt. Ltd.
-          <br>
-          Nayabazar, Kathmandu
-          <br>
-          Website:<a href="http://www.ontreat.com"> www.ontreat.com</a>
-        </marquee>
+      <div>
+        <h3 class="hd"><b>SUPPORTED BY</b></h3>
+        <b>
+          <marquee behavior="sliding" direction="left">Ontreat Services Pvt. Ltd.
+            <br>
+            Nayabazar, Kathmandu
+            <br>
+            Website:<a href="http://www.ontreat.com"> www.ontreat.com</a>
+          </marquee>
+        </b>
       </div>
     </div>
   </div>

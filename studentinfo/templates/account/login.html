@@ -1,24 +1,28 @@
-{% extends "base.html" %} 
-{% load bootstrap4 %} 
+{% extends "base.html" %}
+{% load bootstrap4 %}
 {% load static %}
-
 {% block content %}
 <!-- Login -->
 <section class="g-bg-gray-light-v5">
-    <div class="container g-py-100">
+    <div class="container g-py-100 muli">
         <div class="row justify-content-center">
-            <div class="col-sm-8 col-lg-5 g-bg-white">
-                <div class="u-shadow-v21 rounded g-py-40">
+            <div class="col-sm-8 col-lg-5 g-bg-white card mar login_bg" style="height: 500px; width: 300px;">
+                <div class="container g-py-40">
+                    <div class="d-flex justify-content-center">
+                        <img src="{% static 'images\logo1.png' %}" alt="" style="height: 100px; width: 100px;">
+                    </div>
                     <header class="text-center mb-4">
-                        <h2 class="h2 g-color-black g-font-weight-600 mar"> Login to your account or Create one for free </h2>
+                        <h2 class="h2 g-font-weight-600 mar"> Login to your account or Create one for free </h2>
                     </header>
                     <!-- Form -->
-                    <form method="POST" action="" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %} class="g-py-15" novalidate>
-                         {% csrf_token %}
+                    <form method="POST" action="" autocapitalize="off" {% if form.is_multipart %}
+                        enctype="multipart/form-data" {% endif %} class="g-py-15" novalidate>
+                        {% csrf_token %}
+
                         <div class="mb-4">
                             <!-- {% bootstrap_field form.username show_label=True %} -->
                             {% bootstrap_field form.username show_label=False  %}
-                    
+
                         </div>
                         <div class="g-mb-35">
                             <!-- {% bootstrap_field form.password show_label=True %} -->
@@ -26,17 +30,21 @@
 
                             <div class="row justify-content-between">
                                 <div class="col align-self-center text-left">
-                                    <a class="g-font-size-12" href="{% url 'account_password_reset' %}">Forgot password?</a> <br> <br>
+                                    <a class="g-font-size-12" href="{% url 'account_password_reset' %}">Forgot
+                                        password?</a> <br> <br>
                                 </div>
                             </div>
-                        </div>
-                        
-                      <input type="submit" value="Submit" class="btn btn-primary">
+
+                            <div class=" d-flex justify-content-center">
+                                <button type="submit" value="submit" class="btn btn-lg btn-success"><i class="fa fa-sign-in" aria-hidden="true"> Login</i></button>
+                                </div>
+                        </div><br>
                     </form>
                     <!-- End Form -->
                     <footer class="text-center">
-                        <p class="g-font-size-13 mb-0">Don't have an account? <a class="g-font-weight-600" href="{% url 'account_signup' %}">Sign up</a>
-                        </p>
+                        <p class="g-font-size-13 mb-0">Don't have an account?
+                        <a class="g-font-weight-600 sign_up" href="{% url 'account_signup' %}"><b>Sign up</b></a>
+                    </p> 
                     </footer>
                 </div>
             </div>
@@ -44,4 +52,4 @@
     </div>
 </section>
 <!-- End Login -->
-{% endblock %} 
+{% endblock %}
