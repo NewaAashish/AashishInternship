@@ -12,39 +12,43 @@
                         <img src="{% static 'images\logo1.png' %}" alt="" style="height: 100px; width: 100px;">
                     </div>
                     <header class="text-center mb-4">
-                        <h2 class="h2 g-font-weight-600 mar"> Login to your account or Create one for free </h2>
+                        <h2 class="mar" style="font-size: 27px;"> Login to your account or <br> Create one for free </h2>
                     </header>
                     <!-- Form -->
                     <form method="POST" action="" autocapitalize="off" {% if form.is_multipart %}
                         enctype="multipart/form-data" {% endif %} class="g-py-15" novalidate>
                         {% csrf_token %}
 
-                        <div class="mb-4">
-                            <!-- {% bootstrap_field form.username show_label=True %} -->
-                            {% bootstrap_field form.username show_label=False  %}
+                        <div class="mb-4 row">
+                            <div class="col-1 pt_6"><i class="fa fa-user-circle" aria-hidden="true" style="font-size: 25px;"></i></div>
+                            <div class="col-11">{% bootstrap_field form.username show_label=False  %}</div>
 
                         </div>
-                        <div class="g-mb-35">
-                            <!-- {% bootstrap_field form.password show_label=True %} -->
-                            {% bootstrap_field form.password show_label=False  %}
+                        <div class="g-mb-35 row">
+
+                            <div class="col-1 pt_6"><i class="fa fa-key" aria-hidden="true" style="font-size: 25px;"></i></div>
+
+                            <div class="col-11">{% bootstrap_field form.password show_label=False  %}</div>
+                        </div>
 
                             <div class="row justify-content-between">
                                 <div class="col align-self-center text-left">
-                                    <a class="g-font-size-12" href="{% url 'account_password_reset' %}">Forgot
+                                    <a class="g-font-size-12 pl_37" href="{% url 'account_password_reset' %}">Forgot
                                         password?</a> <br> <br>
                                 </div>
                             </div>
 
                             <div class=" d-flex justify-content-center">
-                                <button type="submit" value="submit" class="btn btn-lg btn-success"><i class="fa fa-sign-in" aria-hidden="true"> Login</i></button>
-                                </div>
-                        </div><br>
+                                <button type="submit" value="submit" class="btn btn-lg btn-success"><i
+                                        class="fa fa-sign-in" aria-hidden="true"> Login</i></button>
+                            </div>
+                        </div>
                     </form>
                     <!-- End Form -->
                     <footer class="text-center">
-                        <p class="g-font-size-13 mb-0">Don't have an account?
-                        <a class="g-font-weight-600 sign_up" href="{% url 'account_signup' %}"><b>Sign up</b></a>
-                    </p> 
+                        <p class="g-font-size-13 mb-0 pt_10">Don't have an account?
+                            <a class="g-font-weight-600 sign_up" href="{% url 'account_signup' %}"><b>Sign up</b></a>
+                        </p>
                     </footer>
                 </div>
             </div>

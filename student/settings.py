@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     "account",
     'crispy_forms',
+    'el_pagination',
 ]
 
 MIDDLEWARE = [

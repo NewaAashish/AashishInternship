@@ -24,12 +24,17 @@ import tempfile
 import math
 import xhtml2pdf.pisa as pisa
 from django.utils import timezone
+from django.contrib.auth.models import User
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 # Create your views here.
 class Info_ListView(LoginRequiredMixin, ListView):
     model = Info
     template_name = 'index.html'
     context_object_name = 'infolist'
+    paginate_by = 5
+    queryset = Info.objects.all()  
 
 class Info_DetailView(DetailView):
     model = Info
@@ -244,3 +249,4 @@ class Pdf(View):
 
 class Pdftemp(TemplateView):
     template_name = 'pdf.html'
+ 

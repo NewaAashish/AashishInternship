@@ -1,0 +1,35 @@
+{% load static %}
+{% block content %}
+
+
+<div class="container mt-3 mb-3 d-flex justify-content-center">
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ul>
+  
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images\exam1.jpg' %}" alt="">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images\exam2.jpg' %}" alt="">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images\exam3.png' %}" alt="">
+    </div>
+  </div>
+  
+
+</div>
+
+</div>
+
+
+{% endblock %}
+

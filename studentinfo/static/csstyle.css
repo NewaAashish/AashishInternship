@@ -12,7 +12,6 @@ body{
     /* background-image: url('images/bg.png'); */
     background-color: white;
 }
-
 .add button a{
     color: white;
     font-weight: normal;
@@ -84,7 +83,7 @@ u {
     margin-top: 40px;
 }    
 .btn-height{
-    height: 40px;
+    height: 48px;
 }
 /* Scroll */
 .scroll {
@@ -107,10 +106,7 @@ height: 100px;
     overflow-y: auto;
     overflow-x: hidden;
 }
-.info_table{
-    height: 72px;
-}
-.academic_table{
+.detail_table{
     height: 109px;
 }
 .table_bg{
@@ -120,6 +116,7 @@ height: 100px;
 }
 .login_bg{
     background-image: url('images/blur.jpg');
+    
     color: white;
 }
 .login_bg a{
@@ -131,7 +128,45 @@ height: 100px;
 .nav_bg{
     background-color: #195637;
 }
-.thead_bg{
+.bg_green{
     background-color: #195637;
     color: white;
+}
+.footer_css{
+    padding-inline-start: 20px;
+    height: 55px;
+}
+
+.btn_grade { 
+    background-color: #195637;
+    color: white!important;
+    text-decoration: none!important;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+ }
+ .pt_10{
+    padding-top: 10px;
+ }
+ .pt_6{
+    padding-top: 6px;
+ }
+ .pl_37{
+    padding-left: 37px;
+ }
+ /* .carousel-inner img {
+    width: 650px;
+    height: 450px;
+  } */
+.pr_25{
+    padding-right: 25px !important;
 }

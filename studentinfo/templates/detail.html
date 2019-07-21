@@ -2,43 +2,51 @@
 {% load static %}
 {% block content %}
 
-    <div>
-        <h1 class="text-center mar">Student Information</h1>
-  </div>
- 
-
-        <!-- <a href="{{request.META.HTTP_REFERER}}">
+<div>
+    <h1 class="text-center mar">Student Information</h1>
+</div>
+<!-- <a href="{{request.META.HTTP_REFERER}}">
             <button class="btn btn-dark btn-md"><i class="fa fa-arrow-left" aria-hidden="true">
                     Go
                     back</i>
             </button>
         </a> -->
-   
-
-
-
 <div class="container">
     <div class="row">
         <div class="col-12">
-
             <div class="row">
                 <div class="col-4">
-                    <div class="card text-center" style="height: 100%;">
+                    <div class="card" style="height: 100%;">
                         {% if studentdetail.image %}
                         <img class="card-img-top" src="{{ studentdetail.image.url }}" alt="Card image">
                         {% else %}
                         <img class="card-img-top" src="{% static 'images/dummyprofile.png' %}" alt="Card image"
                             style="width:50%">
                         {% endif %}
-                        <div class="card-body bg-forcard">
-                            <h4 class="card-title">{{ studentdetail.name_text }} <a class="btn"
+                        <div>
+                            <h4 class="card-header text-center">{{ studentdetail.name_text }} <a class="btn"
                                     href="{% url 'updatestudent' studentdetail.pk %}"><i style="font-size: 30px;"
                                         class="fa fa-pencil-square" aria-hidden="true">
                                     </i>
                                 </a></h4>
-                            <p class="card-text"><b>Batch No: </b> {{ studentdetail.batch_no }} <br>
-                                <b>Faculty: </b> {{ studentdetail.faculty }} <br>
-
+                            <table class="table table-striped">
+                                <tr>
+                                    <td><b>Batch No: </b></td>
+                                    <td>{{ studentdetail.batch_no }}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Faculty: </b></td>
+                                    <td>{{ studentdetail.faculty }}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Contact no:</b></td>
+                                    <td>{{ studentdetail.contact }}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Email: </b></td>
+                                    <td>{{ studentdetail.email }}</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
 
@@ -49,37 +57,26 @@
 
                         </h3>
                         <table class="table table-striped card-body">
-                            <tr class="info_table">
-                                <td><b> Student Contact no:</b> </td>
-                                <td>{{ studentdetail.contact }}</td>
-                            </tr>
-                            <tr class="info_table">
-                                <td><b>Student Email: </b></td>
-                                <td>{{ studentdetail.email }}</td>
-                            </tr>
-                            <tr class="info_table">
+
+                            <tr class="detail_table">
                                 <td><b>Gender: </b></td>
                                 <td>{{ studentdetail.gender }}</td>
                             </tr>
-                            <tr class="info_table">
+                            <tr class="detail_table">
                                 <td><b>Guardian name: </b></td>
                                 <td>{{ studentdetail.guardian_name }}</td>
                             </tr>
-                            <tr class="info_table">
+                            <tr class="detail_table">
                                 <td><b>Guardian Relation: </b></td>
                                 <td>{{ studentdetail.guardian_relation }}</td>
                             </tr>
-                            <tr class="info_table">
+                            <tr class="detail_table">
                                 <td><b>Guardian Contact no: </b></td>
                                 <td>{{ studentdetail.guardian_contact }}</td>
                             </tr>
-
                         </table>
-
                     </div>
-
                 </div>
-
                 <div class="col-sm-4">
                     <div class="card" style="height: 100%;">
                         <h3 class="card-header">
@@ -87,45 +84,39 @@
                         </h3>
                         {% if academic_detail %}
                         <table class="table table-striped card-body">
-                            <tr class="academic_table">
+                            <tr class="detail_table">
                                 <td><b>Total Attended Days:</b> </td>
                                 <td>{{ academic_detail.total_attendance }}</td>
                             </tr>
-                            <tr class="academic_table">
+                            <tr class="detail_table">
                                 <td><b>Extra Cirruculum Remarks:</b></td>
                                 <td>{{ academic_detail.extra_cirruculum_remarks }} </td>
                             </tr>
-                            <tr class="academic_table">
+                            <tr class="detail_table">
                                 <td><b>Academic Activity Remarks:</b></td>
                                 <td>{{ academic_detail.academic_activity_remarks }}</td>
                             </tr>
-                            <tr class="academic_table">
+                            <tr class="detail_table">
                                 <td><b>Achievements:</b></td>
                                 <td>{{ academic_detail.achievements }}</td>
                             </tr>
                         </table>
                         {% else %}
-                       <a class="btn btn-primary" href="{% url 'academic' studentdetail.pk %}">
+                        <a class="bg_green" href="{% url 'academic' studentdetail.pk %}">
                             <i class="fa fa-plus-circle" aria-hidden="true"></i> Add Academic Details</a>
-                    
                         {% endif %}
                     </div>
-
                 </div>
             </div>
-
-
         </div>
         <div class="col-12">{% if first_term %}
-
             {% include 'tab.html' %}
             {% else %}
             <div class="marks">
-                <button class="btn btn-dark btn-lg button-add"><a href="{% url 'marks' studentdetail.pk %}">
+                <button class="btn_grade button-add bg_green"><a href="{% url 'marks' studentdetail.pk %}">
                         <i class="fa fa-plus-circle" aria-hidden="true"> Input Marks</i></a></button>
             </div>
             {% endif %}
-
         </div>
     </div>
     {% if first_term %}
@@ -134,13 +125,12 @@
             <p><b>Subjects with * and students with D grade are considered fail.</b></p>
         </div>
         {% if first_term and second_term and third_term %}
-        <div class="col d-flex justify-content-end"><a class="btn thead_bg btn-height"
+        <div class="col d-flex justify-content-end"><a class="btn_grade btn-height"
                 href="{% url 'result' studentdetail.pk %}">Generate Final Result</a></div>
-        <div class="col d-flex justify-content-end"><a class="btn thead_bg btn-height"
+        <div class="col d-flex justify-content-end"><a class="btn_grade btn-height"
                 href="{% url 'finalresult' studentdetail.pk %}">View Final Result</a></div>
         {% endif %}
     </div>
     {% endif %}
 </div>
-
 {% endblock %}

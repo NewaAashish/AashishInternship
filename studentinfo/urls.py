@@ -16,5 +16,6 @@ urlpatterns = [
     url(r'^student/finalresult/(?P<pk>[-\w]+)/$', Final_Result.as_view(), name='finalresult'),
     url(r'^student/result/(?P<pk>[-\w]+)/$', Result.as_view(), name='result'),
     url(r'^student/academic/(?P<student_id>[-\w]+)/$', Academic_Extra.as_view(), name='academic'),
-    url(r'^student/pdf/$', Pdf.as_view(), name='pdf_generate')
+    url(r'^student/pdf/$', Pdf.as_view(), name='pdf_generate'),
+    # url(r'^student/user/$', UserListView.as_view(), name='user'),
 ]

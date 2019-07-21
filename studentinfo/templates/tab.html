@@ -4,20 +4,20 @@
 <hr>
 </hr>
 <div class="container">
-    <h4 class="muli"><b>Terminal Marks</b></h4>
+    <h4 class="muli text-center"><b>Terminal Marks</b></h4>
 </div>
 <div class="row">
     <div id="exTab2" class="container ">
         <ul class="nav">
             <li class="active flex-fill">
-                <a class="btn btn-lg thead_bg" href="#1" data-toggle="tab">View First Terminal</a>
+                <a class="btn_grade" href="#1" data-toggle="tab">View First Terminal</a>
             </li>
-            <li class="flex-fill d-flex justify-content-center"><a class="btn btn-lg thead_bg" href="#2"
+            <li class="flex-fill d-flex justify-content-center"><a class="btn_grade" href="#2"
                     data-toggle="tab">View Second
                     Terminal</a>
             </li>
-            <li class="flex-fill d-flex justify-content-end"><a class="btn btn-lg thead_bg" href="#3"
-                    data-toggle="tab">View Third
+            <li class="flex-fill d-flex justify-content-end" ><a class="btn_grade" href="#3"
+                    data-toggle="tab" >View Third
                     Terminal</a>
             </li>
         </ul><br>
@@ -31,7 +31,7 @@
                             </td>
                             <td style="width: 240px;"></td>
                             <td style="width: 240px;"></td>
-                            <td style="width: 240px;"><a class="btn thead_bg button-add"
+                            <td style="width: 240px;"><a class="btn_grade"
                                     href="{% url 'updatemarks' first_term.pk %}">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"> Update Marks</i>
                                 </a></td>
@@ -182,12 +182,12 @@
                             <td style="width: 240px;"></td>
                             <td style="width: 240px;"></td>
                             {% if second_term %}
-                            <td style="width: 240px;"><a class="btn thead_bg button-add"
+                            <td style="width: 240px;"><a class="btn_grade"
                                     href="{% url 'updatemarks' second_term.pk %}">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"> Update Marks</i>
                                 </a></td>
                             {% else %}
-                            <td style="width: 240px;"><a class="btn thead_bg button-add"
+                            <td style="width: 240px;"><a class="btn_grade"
                                     href="{% url 'marks' studentdetail.pk %}">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"> Add Marks</i> </a></td>
                             {% endif %}
@@ -336,13 +336,14 @@
                             <td style="width: 240px;"></td>
                             <td style="width: 240px;"></td>
                             {% if third_term %}
-                            <td style="width: 240px;"><a class="btn thead_bg button-add"
-                                    href="{% url 'updatemarks' third_term.pk %}">
+                            <td style="width: 240px;">
+                                <a class="btn_grade" href="{% url 'updatemarks' third_term.pk %}">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"> Update Marks</i>
-                                </a></td>
+                                </a>
+                            </td>
 
                             {% else %}
-                            <td style="width: 240px;"><a class="btn thead_bg button-add"
+                            <td style="width: 240px;"><a class="btn_grade"
                                     href="{% url 'marks' studentdetail.pk %}">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"> Add Marks</i> </a></td>
                             {% endif %}
