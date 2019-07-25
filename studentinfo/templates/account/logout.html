@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="container text-center muli">
-    <p class="text-center" style="margin: 3%;"><h1><b>Are you sure you want to log out?</b></h1></p>
+    <p class="text-center"><h1 class=" logout_font"><b>Are you sure you want to log out?</b></h1></p>
     <form method="POST" action="{% url 'account_logout' %}" autocapitalize="off" class="reg-page" novalidate>
         {% csrf_token %} 
         <button type="submit" class="btn btn-danger btn-center">Confirm

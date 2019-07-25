@@ -4,12 +4,11 @@ from django.db import models
 class Info(models.Model):
     name_text=models.CharField(max_length=30)
     roll=models.IntegerField(blank=True, null=True)
-    batch_no=models.IntegerField()
+    grade=models.IntegerField(blank=True, null=True)
     faculty=models.CharField(max_length=20)
     contact=models.IntegerField()
     address=models.CharField(blank=True, null=True,max_length=20)
     email=models.EmailField(blank=True, null=True)
-
     gender = models.CharField(max_length=50, blank=True, null=True)
     guardian_name=models.CharField(blank=True, null=True,max_length=20)
     guardian_relation=(

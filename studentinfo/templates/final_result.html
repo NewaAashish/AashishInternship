@@ -4,21 +4,23 @@
 {% load bootstrap4 %}
 <div class="container muli">
     <div class="row">
-        <div class="col-3">
-            <img src="{% static 'images\logo1.png' %}" alt="">
+        <div class="col-lg-3 col-sm-2 logo_width">
+            <img src="{% static 'images\logo1.png' %}" alt="" class="final_logo">
         </div>
-        <div class="col-9">
-            <h1 class="mar"><b>Examination Board of Nepal</b></h1>
-            <p style="padding-left: 18%;">(Afflicated to Education Board of Nepal)</p>
+        <div class="col-lg-9 col-sm-9 examination_width">
+            <h1 class="mar"><b class="font_18px">Examination Board of Nepal</b></h1>
+            <p class="pl_18 font_12">(Afflicated to Education Board of Nepal)</p>
         </div>
     </div>
     <div>
         <h2 class="text-center"><b>Mark-Sheet</b></h2>
         <p>
-            <b>Marks secured by </b><u>{{ student.name_text }}</u> <br>
-            <b>Roll no </b><u>{{ student.roll }} </u>&emsp;<b> Grade </b><u>10</u><br>
-            <b>School </b><u>ABC Higher Secondary School, Nayabazar, Kathmandu </u> <br>
-            <b>Batch of </b><u>{{ student.batch_no }}</u> <br>
+            <b class="font_12">Marks secured by </b><u class="font_12">{{ student.name_text }}</u> <br>
+            <b class="font_12">Roll no </b><u class="font_12">{{ student.roll }} </u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <b class="font_12">Grade </b><u class="font_12">{{ student.grade }}</u> <br>
+            <b class="font_12">School </b><u class="font_12">ABC Higher Secondary School, Nayabazar, Kathmandu </u> <br>
+            <b class="font_12">in the Board Examination</b> <u class="font_12">{% now "Y" %} </u>
+
         </p>
     </div>
     <div class="text-center table_bg">
@@ -152,34 +154,39 @@
         </table>
         <br>
     </div>
-    <div>
-        <div class="d-flex justify-content-start"><span
+    <div class="row">
+        <div class="col-6">
+                    <div class="d-flex justify-content-start"><span
                 style="border-bottom: 1px solid black; padding-left: 50px">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+        </div>       
+         <div class="d-flex justify-content-start font_12 pl_25"><b>Checked By</b></div>
         </div>
+
+
+        <div class="col-6">
         <div class="d-flex justify-content-end"><span
                 style="border-bottom: 1px solid black; padding-left: 50px">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
         </div>
-        <div class="d-flex justify-content-start"><b>&emsp;&emsp;Checked By</b></div>
-        <div class="d-flex justify-content-end"><b>Principal &emsp;&emsp;</b></div>
-    </div>
-    <div>
+        <div class="d-flex justify-content-end font_12 pr_18"><b>Principal &emsp;&emsp;</b></div></div>
+    </div> <br>
+    <div class="font_12">
         <b>Date&emsp;</b>{% now "jS F Y" %}
     </div>
     <div class="row">
-        <div class="col-sm-6 d-flex justify-content-start">
-            <ul style="list-style: none; padding: 0px !important;">
+        <div class="col-6 d-flex justify-content-start">
+            <ul style="list-style: none; padding: 0px !important;" class="font_12">
                 <li><b>A+&emsp; = &emsp;</b>Distinction</li>
                 <li><b>A&ensp;&emsp; = &emsp;</b>1st division</li>
                 <li><b>B&ensp;&emsp; = &emsp;</b>2nd division</li>
             </ul>
         </div>
-        <div class="col-sm-6 d-flex justify-content-end">
-            <ul style="list-style: none;">
+        <div class="col-6 d-flex justify-content-end">
+            <ul style="list-style: none;" class="font_12">
                 <li><b>C&ensp;&emsp; = &emsp;</b>3rd division</li>
                 <li><b>D and asterisk (*)&emsp;Fail</b></li>
             </ul>
         </div>
-        <div class="col d-flex justify-content-end" style="margin-bottom: 10px;"><a class="btn_grade btn-height"
+        <div class="col d-flex justify-content-end" style="margin-bottom: 10px;"><a class="btn_grade btn-height button_size"
                 href="{% url 'pdf_generate' %}?query={{student.id}}">Generate PDF</a></div>
     </div>
 

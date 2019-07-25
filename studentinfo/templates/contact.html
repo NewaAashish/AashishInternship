@@ -1,20 +1,29 @@
 {% extends 'base.html'%}
+{% load static %}
 {% load bootstrap4 %}
-
 {% block content %}
-
 <div class="container muli mar card">
     <h2 class="card-header">Student Grading System</h2>
     <div class="row">
         <div class="card-body muli col">
-            <b>Developed By: </b>Aashish Maharjan <br><br>
-            <b>Email: </b>aashish.mhrzn@gmail.com <br><br>
-            <b>Number: </b>+977-9843077244
+            <div>
+                <b>Developed By: </b>Aashish Maharjan <br><br>
+                <b>Email: </b>aashish.mhrzn@gmail.com <br><br>
+                <b>Number: </b>+977-9843077244
+            </div><br>
+            <div>
+                <h4><b>Send us your Feedback</b></h4>
+                <form method="POST" action="{% url 'feed' %}">
+                    {% csrf_token %}
+                    {% bootstrap_form form layout='horizontal' %}
+                    <button class="btn btn-success" type="submit">Submit</button>
+                </form>
+            </div>
         </div>
-        <div class="col">
-            <iframe
+        <div class="col pt_10">
+            <iframe class="iframe_size"
                 src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d56527.82321826669!2d85.30692709493246!3d27.686736367633447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sprime+college!5e0!3m2!1sen!2snp!4v1563447687859!5m2!1sen!2snp"
-                width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                 frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
     </div>
     <div class="card-footer">

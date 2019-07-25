@@ -1,0 +1,94 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+
+<div class="container pt_10 text-center muli">
+    <div class="row" style="width: 100%">
+        <div class="col-lg-1 col-md-3 col-sm-3 d-flex justify-content-start logo_left"><img src="{% static 'images\logo1.png' %}"
+                alt="logo" style="width: 100px; height: 100px;"></div>
+        <div class="col-lg-8 col-md-6 col-sm-5 align-self-center search_class">
+            <h1 class="search_class_font"><b>SEARCH BY CLASS</b></h1>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-4 d-flex justify-content-end align-self-center"><b class="pr_25">Grade:</b>
+            <select name="usecase" class="selectusecase">
+                <option value="0">Select Class</option>
+                <option value="10" {% if 10 == usecase_get %}selected {% endif %}>10
+                </option>
+                <option value="9" {% if 9 == usecase_get %}selected {% endif %}>9
+                </option>
+                <option value="8" {% if 8 == usecase_get %}selected {% endif %}>8
+                </option>
+                <option value="7" {% if 7 == usecase_get %}selected {% endif %}>7
+                </option>
+                <option value="6" {% if 6 == usecase_get %}selected {% endif %}>6
+                </option>
+                <option value="5" {% if 5 == usecase_get %}selected {% endif %}>5
+                </option>
+            </select></div>
+
+    </div>
+</div>
+<div class="pt_10 class_table" style="width: 100%">
+    <div class="scrolled muli pl_10 pr_10">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>S.N.</th>
+                    <th>Image</th>
+                    <th>Student</th>
+                    <th>Contact</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>{% if show_list %}
+                {% for i in show_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>
+                        <div style="height:60px;">
+                            {% if i.image %}
+                            <img class="card-img-top" src="{{ i.image.url }}" alt="Card image"
+                                style="height:60px; width: 70px;">
+                            {% else %}
+                            <img class="card-img-top" src="{% static 'images/dummyprofile.png' %}" alt="Card image">
+                            {% endif %}
+                        </div>
+                    </td>
+                    <td>
+                        <a href="{% url 'student-detail' i.pk %}"> <b
+                                class="muli text-dark">{{ i.name_text }}</b></a><br>
+                    </td>
+                    <td>
+                        <p>{{ i.contact }}</p>
+                    </td>
+                    <td>
+                        <p>{{ i.address }}</p>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <p><b>No students to display</b> </p>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    console.log("hhhh")
+    $('select.selectusecase').change(function () {
+        var query_string = 'class=' + $(this).val()
+
+        if (query_string) {
+            location.href = "?" + query_string;
+        }
+    });
+</script>
+{% endblock %}

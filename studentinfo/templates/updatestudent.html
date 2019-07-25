@@ -16,15 +16,15 @@
                 {{ form.name_text|as_crispy_field }}
             </div>
             <div class="col-6">
-                {{ form.batch_no|as_crispy_field }}
+                {{ form.grade|as_crispy_field }}
             </div>
         </div>
         <div class="row">
             <div class="col-6">
-                {{ form.faculty|as_crispy_field }}
+                {{ form.roll|as_crispy_field }}
             </div>
             <div class="col-6">
-                {{ form.contact|as_crispy_field }}
+                {{ form.faculty|as_crispy_field }}
             </div>
         </div>
         <div class="row">
@@ -32,22 +32,27 @@
                 {{ form.address|as_crispy_field }}
             </div>
             <div class="col-6">
-                {{ form.email|as_crispy_field }}
+                {{ form.contact|as_crispy_field }}
             </div>
         </div>
         {% bootstrap_field form.gender field_class="col-5" %}
         <div class="row">
             <div class="col-6">
-                {{ form.guardian_name|as_crispy_field }}
+                {{ form.email|as_crispy_field }}
             </div>
             <div class="col-6">
-                {{ form.guardian_relation|as_crispy_field }}
+                {{ form.guardian_name|as_crispy_field }}
             </div>
         </div>
         <div class="row">
             <div class="col-6">
+                {{ form.guardian_relation|as_crispy_field }}
+            </div>
+            <div class="col-6">
                 {{ form.guardian_contact|as_crispy_field }}
             </div>
+        </div>
+        <div class="row">
             <div class="col-6">
                 {{ form.image|as_crispy_field }}
             </div>

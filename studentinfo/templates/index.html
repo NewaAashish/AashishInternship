@@ -5,19 +5,17 @@
 {% csrf_token %}
 
 <!-- Student List Start -->
-<div class=" row justify-content-start mar" style="width: 100%;">
-  <div class="col-6 ">
-    <div class="scrolled muli">
-
+<div class=" row justify-content-start mar mob_pad" style="width: 100%;">
+  <div class="col-lg-6">
+    <div class="scrolled muli width_400">
       <table class="table table-striped table-hover pad js-serial">
         <thead class="bg_green">
           <tr class="head-text">
-            <th class="col-1" style="width:110px;">Photo</th>
-            <th class="col-3">Student List</th>
-            <th class="col-2 pr_25">Action</th>
+            <th class="col-lg-1" style="width:110px;">Photo</th>
+            <th class="col-lg-3">Student List</th>
+            <th class="col-lg-2 pr_25">Action</th>
           </tr>
         </thead>
-
         {% for i in infolist %}
         <tbody class="table-bordered ">
           <tr>
@@ -34,8 +32,8 @@
               <a href="{% url 'student-detail' i.pk %}"> <b class="list-name muli text-dark">{{ i.name_text }}</b></a>
             </td>
 
-            <td class="d-flex justify-content-center pr_25">
-              <a class="btn" data-toggle="tooltip" data-placement="right" title="Delete"
+            <td class="d-flex justify-content-center pr_delete">
+              <a class="btn"
                 href="{% url 'delete' i.pk %}"><i class="fa fa-trash" style="font-size:44px; color: crimson;"></i></a>
             </td>
           </tr>
@@ -48,32 +46,37 @@
     {% if is_paginated %}
     <ul class="pagination d-flex justify-content-center">
       {% if page_obj.has_previous %}
-      <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+      <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}"
+          style="background-color:#195637; color:white;">&laquo;</a></li>
       {% else %}
-      <li class="disabled"><span class="page-link">&laquo;</span></li>
+      <li class="disabled"><span class="page-link" style="background-color:#195637; color:white;">&laquo;</span></li>
       {% endif %}
       {% for i in paginator.page_range %}
       {% if page_obj.number == i %}
-      <li class="active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+      <li class="active"><span class="page-link" style="background-color:#195637; color:white;">{{ i }} <span
+            class="sr-only">(current)</span></span></li>
       {% else %}
-      <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+      <li class="page-item"><a class="page-link" href="?page={{ i }}"
+          style="background-color:#195637; color:white;">{{ i }}</a></li>
       {% endif %}
       {% endfor %}
       {% if page_obj.has_next %}
-      <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+      <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}"
+          style="background-color:#195637; color:white;">&raquo;</a></li>
       {% else %}
-      <li class="disabled"><span class="page-link">&raquo;</span></li>
+      <li class="disabled"><span class="page-link" style="background-color:#195637; color:white;">&raquo;</span></li>
       {% endif %}
     </ul>
     {% endif %}
     <!--End Pagenation-->
 
   </div>
-  <div class="col-1 align-self-center">
-    <img src="{% static 'images\logoblank.png' %}" alt="scroll down" class="scroll">
+  <div class="col-1 align-self-center"><a href="#"> <img src="{% static 'images\logoblank.png' %}" alt="scroll down"
+        class="scroll"></a>
+
   </div>
-  <div class="col-5 justify-content-end">
-    <div class="muli">
+  <div class="col-lg-5 col-sm-12 col-md-12 justify-content-end">
+    <div class="muli width_415 width_768">
       <h3 class=" hd"><b>HOW TO USE</b></h3>
       <ul><b>
           <li>Add a new student</li>
@@ -108,9 +111,9 @@
   </div>
 </div>
 
-<div class="alert alert-success muli">
-  <h3 class="text-center"><b>A BIT ABOUT THE SYSTEM</b></h3>
-  <p class="text-justify"><b>
+<div class="alert alert-success muli plr_0" id="alert">
+  <h3 class="text-center easy_headfont"><b>A BIT ABOUT THE SYSTEM</b></h3>
+  <p class="text-justify easy_parafont"><b>
       Grading in education is the process of applying standardized measurements of varying levels of achievement in a
       course.
       Grades can be assigned as letters (for example A through F), as a range (for example 1 to 6), as a percentage of a
@@ -119,13 +122,25 @@
       The final grading is done by aggregating 10% from 1st terminal and 2nd terminal result and 80% from 3rd terminal
       result.
     </b> </p>
-</div><br>
+</div>
+<div class="row justify-content-center muli font-weight-bold mtb_80 plr_0">
+  <div class="col-lg-4 col-md-6 text-center mr_0 ">
+    <img src="{% static 'images/easy.png' %}" alt="easy" class="easy_size">
+    <h4 class="pt_10 pb_10 easy_headfont"><b>Easy to use</b></h4>
+    <p class="easy_parafont">Grading system is simple and is easy to use. One can easily use its all functions by following "How to use".</p>
+  </div>
+  <div class="col-lg-4 col-md-6 text-center ">
+    <img src="{% static 'images/note.png' %}" alt="easy" class="easy_size">
+    <h4 class="pt_10 pb_10 easy_headfont"><b>Gets your work done</b></h4>
+    <p class="easy_parafont">Records student detail, marks, calculates result and generates report which are required for distribution.</p>
+  </div>
+</div>
 
 <!--Carausal-->
-<div>
+<div class="display_carausal">
   {% include 'D:\djangoproject\Project\student\studentinfo\templates\multiplecarausal.html' %}
 </div> <br>
-<div class="footer bg_green footer_css text-center">
+<div class="footer bg_green footer_css text-center easy_parafont" id="footer">
   <p class="muli pt_10">&copy; Student Grading System - 2019 All Rights Reserved</p>
 </div>
 

@@ -27,8 +27,8 @@ class AcademicForm(forms.ModelForm):
             model = AcademicExtra
             fields = '__all__'
 
-
-
-
-
-
+class ContactForm(forms.Form):
+      email = forms.CharField(required=True)
+      contact = forms.CharField(required=True)
+      subject = forms.CharField(required=True)
+      msg = forms.CharField(required=True, widget=forms.Textarea)

@@ -4,7 +4,7 @@ from .models import Info, Marks, Final, AcademicExtra
 from django.urls import reverse_lazy
 from django.views.generic.edit import DeleteView, FormView, UpdateView
 from django.views.generic import ListView, DetailView, View
-from studentinfo.forms import InfoForm, MarksForm, FinalForm, AcademicForm
+from studentinfo.forms import InfoForm, MarksForm, FinalForm, AcademicForm, ContactForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.base import TemplateView
 from django.db.models import Q, F
@@ -26,7 +26,7 @@ import xhtml2pdf.pisa as pisa
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.core.mail import send_mail
 
 # Create your views here.
 class Info_ListView(LoginRequiredMixin, ListView):
@@ -136,6 +136,45 @@ class Marks_UpdateView(UpdateView):
 
 class Home(TemplateView):
     template_name = 'contact.html'
+    success_url = reverse_lazy('home')
+
+    def get_context_data(self, **kwargs):
+        context = super(Home, self).get_context_data(**kwargs)
+        context['form'] = ContactForm
+        return context
+        
+    # def contact_info(self, request):
+    #     if request.method == 'POST':
+    #         form = ContactForm(request.POST)
+    #         if form.is_valid():
+    #             email = form.cleaned_data['email']
+    #             contact = form.cleaned_data['contact'] 
+    #             subject = form.cleaned_data['subject'] 
+    #             msg = "{0} has sent you a new message:\n\n{1}".format(email, form.cleaned_data['msg'])
+    #             send_mail('aashish.mhrzn@gmail.com', contact, subject, msg, ['aashish.mhrzn@gmail.com'],)
+    #             return HttpResponse('Thanks for contacting us!')
+    #     else:
+    #         form = ContactForm()
+    #     return render(request, 'contact.html', {'form': form})
+class Contact(FormView):
+    template_name = 'contact.html'
+    form_class = ContactForm
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        if form.is_valid() and self.request.method == 'POST':
+            email_address = 'aashish.mhrzn@gmail.com' 
+            email = self.request.POST.get('email', '')
+            contact = self.request.POST.get('contact', '')
+            subject = self.request.POST.get('subject', '')
+            msg = self.request.POST.get('msg', '')
+            body = '''email: %s
+                contact: %s
+                subject: %s
+                msg: %s''' % (email, contact, subject, msg)
+            from_email = 'aashish.mhrzn@gmail.com'
+            send_mail('Recived Message', body, from_email, [email_address])
+        return super().form_valid(form)  
 
 class Final_Result(TemplateView):
     model = Final
@@ -250,3 +289,14 @@ class Pdf(View):
 class Pdftemp(TemplateView):
     template_name = 'pdf.html'
  
+class Class_ListView(TemplateView):
+    template_name = 'category_class.html'
+    def get_context_data(self, **kwargs):
+        context = super(Class_ListView, self).get_context_data(**kwargs)
+        context['usecase_get']= int(self.request.GET.get('class',0))
+        context['student_list']= Info.objects.all()
+        try:
+            context['show_list']= Info.objects.filter(grade=int(self.request.GET.get('class',None)))
+        except:
+            context['show_list'] = False
+        return context

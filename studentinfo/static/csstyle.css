@@ -56,10 +56,10 @@ h1{
     padding-left: 10em;
 }
 .pdr{
-    padding-right: 9em;
+    padding-right: 4em;
 }
 .pdl{
-    padding-left: 9em;
+    padding-left: 3em;
 
 }
 .hd{
@@ -157,16 +157,285 @@ height: 100px;
  .pt_10{
     padding-top: 10px;
  }
+ .pb_10{
+     padding-bottom: 10px;
+ }
  .pt_6{
     padding-top: 6px;
  }
  .pl_37{
     padding-left: 37px;
  }
- /* .carousel-inner img {
-    width: 650px;
-    height: 450px;
-  } */
-.pr_25{
+ .pl_10{
+     padding-left: 10px;
+ }
+ .pr_10{
+    padding-right: 10px;
+ }
+.pr_delete{
     padding-right: 25px !important;
+}
+.category_list{
+    font-size: 15px;
+}
+.pb_14{
+    padding-bottom: 14px;
+}
+.pl_18{
+    padding-left: 18%;
+}
+.pl_25{
+    padding-left: 25px;
+}
+.mtb_80{
+    margin-bottom: 80px;
+    margin-top: 80px;
+    width: 100%;
+}
+.easy_size{
+    width: 100px;
+    height: 100px;
+}
+.carausal_css{
+    width: 350px; 
+    height: 180px; 
+
+}
+.menu-trigger{
+    display: none;
+}
+.nav-expanded{
+	display: none;	
+}
+.iframe_size{
+    width: 600px; 
+    height: 600px;
+}
+.logout_font{
+    margin: 3%;
+    font-size: 40px;
+}
+.logo_left{
+    left: -18vh;
+}
+.search_class_font{
+  
+    font-size: 30px;
+}
+.carausal_size{
+    width: 350px; 
+    height: 180px; 
+    margin-left: 2px; 
+    margin-right: 2px;
+}
+.finalbtn_pad{
+    margin-right: 6.5em;
+}
+.terminal_pad{
+    margin-right: 16em;
+}
+.final_logo{
+    width: 200px;
+    height: 200px;
+}
+
+
+
+/* Responsiveness Start */
+@media(max-width: 425px) { 
+    #nav, #footer, #alert{
+        width: 425px !important;
+    }
+    h1{
+        font-size: 22px !important;
+    }
+    h2{
+        font-size: 20px !important;
+    }
+    h3{
+        font-size: 18px !important;
+    }
+    h4{
+        font-size: 16px !important;
+    }
+    td, th{
+        font-size: 12px !important;
+    }
+   
+    .scroll{
+        display: none;
+    }
+    .pb_14{
+        padding: 0%;
+    }
+    .display_carausal{
+        display: none;
+    }
+    .easy_size{
+        width: 50px !important;
+        height: 50px !important;
+    }
+    .easy_parafont{
+        font-size: 12px;
+    }
+    .easy_headfont{
+        font-size: 16px;
+    }
+    .list-name{
+        font-size: 15px;
+    }
+    .head-text{
+        font-size: 15px;
+    } 
+    .mob_pad{
+        padding-left: 5px;
+    }
+    .mr_0{
+        margin-right: 0;
+    }
+  .width_400{
+        width: 400px;
+    }  
+    .width_415{
+        width: 415px !important;
+    }
+.menu-trigger{
+    display: block;
+}
+.bgbutton{
+	background-color: #FED136;
+	color: white;
+	width: 105px;
+	height: 38px;
+    font-size: 12px;
+}
+.pading_nav{
+ padding: 0px !important;
+}
+.input_font{
+    font-size: 25px !important;
+}
+.iframe_size{
+    width: 400px !important;
+    height: 400px !important;
+}
+.logout_font{
+    margin: 3%;
+    font-size: 20px;
+}
+.logo_left{
+    left: 3vh;
+}
+.search_class{
+    display: none;
+}
+.class_table{
+    font-size: 12px;
+}
+.position{
+    left: 5vh !important;
+}
+.button_size{
+    font-size: 12px;
+    height: 36px
+}
+.finalbtn_pad{
+    margin-right: 10em;
+}
+.terminal_pad{
+    margin-right: 3.4em;
+}
+.detail_table{
+    height: 55px;
+}
+.final_logo{
+    width: 100px !important;
+    height: 100px !important;
+}
+.logo_width{
+    width: 120px !important;
+}
+.examination_width{
+    width: 305px !important;
+}
+.pl_18{
+    padding-left: 8%;
+}
+.pr_18{
+    padding-right: 18px;
+}
+.pl_25{
+    padding-left: 25px;
+}
+.font_12{
+    font-size: 12px;
+}
+.font_18px{
+    font-size: 18px;
+}
+
+}
+@media(max-width: 768px){ 
+    #nav, #footer, #alert{
+        width: 768px;
+    }
+    .pdr{
+        padding-right: none !important;
+    }
+    .pdl{
+        padding-left: none !important;
+    
+    }
+    .menu-trigger{
+        display: block;
+    }
+
+    .scroll{
+        display: none;
+    }
+    .pading_nav{
+        padding: 0px !important;
+       }
+    .width_768{
+        width: 768px;
+    }
+    .easy_size{
+        width: 70px;
+        height: 70px;
+    }
+    .iframe_size{
+        width: 690px;
+        height: 600px;
+    }
+    .logo_left{
+        left: -4vh;
+    }
+
+}
+
+
+@media(max-width: 1024px) and (min-width:769px){ 
+    .menu-trigger{
+        display: none;
+    }
+    .nav-expanded{
+        display: none;	
+    }
+    .scroll {
+        width: 65px;
+        height: 65px;
+        
+            animation: move 1s infinite alternate;
+        }
+        .easy_size{
+            width: 80px;
+            height: 80px;
+        }
+        .list-name{
+            font-size: 18px;
+        }
+        .head-text{
+            font-size: 18px;
+        }
+
 }

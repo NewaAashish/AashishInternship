@@ -4,7 +4,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <div>
-    <h1 class="mar">Input New Student Information:</h1>
+    <h1 class="mar input_font">Input New Student Information:</h1>
 </div>
 <div class="container mar">
 
@@ -16,15 +16,15 @@
                 {{ form.name_text|as_crispy_field }}
             </div>
             <div class="col-6">
-                {{ form.batch_no|as_crispy_field }}
+                {{ form.grade|as_crispy_field }}
             </div>
         </div>
         <div class="row">
             <div class="col-6">
-                {{ form.faculty|as_crispy_field }}
+                {{ form.roll|as_crispy_field }}
             </div>
             <div class="col-6">
-                {{ form.contact|as_crispy_field }}
+                {{ form.faculty|as_crispy_field }}
             </div>
         </div>
         <div class="row">
@@ -32,31 +32,36 @@
                 {{ form.address|as_crispy_field }}
             </div>
             <div class="col-6">
-                {{ form.email|as_crispy_field }}
+                {{ form.contact|as_crispy_field }}
             </div>
         </div>
         {% bootstrap_field form.gender field_class="col-5" %}
         <div class="row">
             <div class="col-6">
-                {{ form.guardian_name|as_crispy_field }}
+                {{ form.email|as_crispy_field }}
             </div>
             <div class="col-6">
-                {{ form.guardian_relation|as_crispy_field }}
+                {{ form.guardian_name|as_crispy_field }}
             </div>
         </div>
         <div class="row">
             <div class="col-6">
+                {{ form.guardian_relation|as_crispy_field }}
+            </div>
+            <div class="col-6">
                 {{ form.guardian_contact|as_crispy_field }}
             </div>
+        </div>
+        <div class="row">
             <div class="col-6">
                 {{ form.image|as_crispy_field }}
             </div>
         </div>
         <br>
-{% bootstrap_button "Save" button_type="submit" button_class="bg_green btn-lg " %}      
-        </div>
-    </form>
-    <!-- <a href="{{request.META.HTTP_REFERER}}">
+        {% bootstrap_button "Save" button_type="submit" button_class="bg_green btn-lg " %}
+</div>
+</form>
+<!-- <a href="{{request.META.HTTP_REFERER}}">
         <button class="btn btn-dark btn-md"><i class="fa fa-arrow-left" aria-hidden="true"> Go back</i>
         </button>
     </a> -->

@@ -38,31 +38,37 @@
 
 
   {% endblock extends_css %}
+  {% csrf_token %}
   <title>Student Info</title>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-sm nav_bg navbar-dark">
+  <nav class="navbar navbar-expanded nav_bg navbar-dark" id="#nav">
+    
     <!-- Brand/logo -->
     <a class="navbar-brand nav-link " href="{% url 'index' %}"><i class="fa fa-home" aria-hidden="true"></i></a>
-
+    <button class="menu-trigger navbar-toggler btn btn-sm bgbutton ">MENU</button>
     <!-- Links -->
+    <div class="nav-menu collapse navbar-collapse">
     <ul class="navbar-nav">
 
       {% if request.user.is_authenticated %}
-      <li class="nav-item pdr pdl">
+   <li class="nav-item pdr pdl pading_nav">
 
 
         <a class="nav-link" href="{% url 'add' %}"><i class="fa fa-plus" aria-hidden="true"> Add Student</i></a>
-      </li> {% endif %}
-      <li class="nav-link active muli"><b>Student Grading System</b></li>
+      </li>   
+      <li class="nav-item pdr pdl pading_nav">
+          <a class="nav-link" href="{% url 'category' %}"><i class="fa fa-search" aria-hidden="true"> Search By Class</i></i></a>
+        </li>  {% endif %}
+      <li class="nav-link active muli pading_nav" style="padding-left: 65px"><b>Student Grading System</b></li>
 
-      <li class="nav-item pdr pdl">
+      <li class="nav-item pdr pdl pading_nav" style="padding-left: 9em;">
         <a class="nav-link" href="{% url 'home' %}"><i class="fa fa-phone-square" aria-hidden="true"> Contact Us</i>
         </a>
       </li>
-      <li class="nav-item pd">
+      <li class="nav-item pd pading_nav">
         {% if request.user.is_authenticated %}
         <a class="nav-link" href="{% url 'account_logout' %}"><i class="fa fa-sign-out" aria-hidden="true">
             Logout</i></a>
@@ -71,13 +77,21 @@
         {% endif %}
       </li>
 
-    </ul>
+    </ul></div>
   </nav>
 
 
   {% block content %}
 
   {% endblock %}
+  <script>
+  		jQuery(document).ready(function () {
+			jQuery(".menu-trigger").click(function () {
+				jQuery(".nav-menu").slideToggle(function () {
+					jQuery(this).toggleClass("nav-expanded");
+				});
+			})
+		})</script>
 </body>
 
 </html>

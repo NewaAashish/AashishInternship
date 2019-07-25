@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from . views import Info_ListView, Info_DetailView, Info_DeleteView, Info_FormView, Marks_MarksView, Marks_ListView, Marks_DisplayView, Marks_UpdateView, Info_UpdateView, Home, Result, Final_Result, Academic_Extra, Pdftemp, Pdf
+from . views import Info_ListView, Info_DetailView, Info_DeleteView, Info_FormView, Marks_MarksView, Marks_ListView, Marks_DisplayView, Marks_UpdateView, Info_UpdateView, Home, Result, Final_Result, Academic_Extra, Pdftemp, Pdf, Class_ListView, Contact
 from django.contrib.auth.views import login
 
 urlpatterns = [
@@ -17,5 +17,6 @@ urlpatterns = [
     url(r'^student/result/(?P<pk>[-\w]+)/$', Result.as_view(), name='result'),
     url(r'^student/academic/(?P<student_id>[-\w]+)/$', Academic_Extra.as_view(), name='academic'),
     url(r'^student/pdf/$', Pdf.as_view(), name='pdf_generate'),
-    # url(r'^student/user/$', UserListView.as_view(), name='user'),
+    url(r'^student/category/$', Class_ListView.as_view(), name='category'),
+    url(r'^feed/$', Contact.as_view(), name='feed'),
 ]

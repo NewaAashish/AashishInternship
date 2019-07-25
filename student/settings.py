@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "account",
     'crispy_forms',
     'el_pagination',
+    'watermarker',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,8 @@ ACCOUNT_EMAIL_CONFIRMATION_EMAIL = False
 LOGIN_URL='/account/login/'
 SITE_ID = 1
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+EMAIL_HOST= 'smtp.gmail.com'
+EMAIL_HOST_USER= 'aashish.mhrzn@gmail.com'
+EMAIL_HOST_PASSWORD= 'Aashish_267691'
+EMAIL_USE_TLS= True
+EMAIL_PORT= 587
