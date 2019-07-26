@@ -34,7 +34,7 @@
 
             <td class="d-flex justify-content-center pr_delete">
               <a class="btn"
-                href="{% url 'delete' i.pk %}"><i class="fa fa-trash" style="font-size:44px; color: crimson;"></i></a>
+                href="{% url 'delete' i.pk %}"><i class="fa fa-trash" style="font-size:32px; color: crimson; height: 44px;"></i></a>
             </td>
           </tr>
         </tbody>
@@ -124,12 +124,12 @@
     </b> </p>
 </div>
 <div class="row justify-content-center muli font-weight-bold mtb_80 plr_0">
-  <div class="col-lg-4 col-md-6 text-center mr_0 ">
-    <img src="{% static 'images/easy.png' %}" alt="easy" class="easy_size">
+  <div class="col-lg-4 col-md-6 text-center mr_0 left_pos">
+    <img src="{% static 'images/easypic.png' %}" alt="easy" class="easy_size">
     <h4 class="pt_10 pb_10 easy_headfont"><b>Easy to use</b></h4>
     <p class="easy_parafont">Grading system is simple and is easy to use. One can easily use its all functions by following "How to use".</p>
   </div>
-  <div class="col-lg-4 col-md-6 text-center ">
+  <div class="col-lg-4 col-md-6 text-center left_pos">
     <img src="{% static 'images/note.png' %}" alt="easy" class="easy_size">
     <h4 class="pt_10 pb_10 easy_headfont"><b>Gets your work done</b></h4>
     <p class="easy_parafont">Records student detail, marks, calculates result and generates report which are required for distribution.</p>

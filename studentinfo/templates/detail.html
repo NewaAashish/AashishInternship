@@ -101,9 +101,11 @@
                                 <td>{{ academic_detail.achievements }}</td>
                             </tr>
                         </table>
-                        {% else %}
-                        <a class="bg_green" href="{% url 'academic' studentdetail.pk %}">
-                            <i class="fa fa-plus-circle" aria-hidden="true"></i> Add Academic Details</a>
+                        {% else %} <div class="d-flex justify-content-center pt_10 pb_10"><b>
+                            <a href="{% url 'academic' studentdetail.pk %}">
+                                    <i class="fa fa-plus-circle" aria-hidden="true"></i> Add Academic
+                                    Details</a></b>
+                        </div>
                         {% endif %}
                     </div>
                 </div>
@@ -112,23 +114,23 @@
         <div class="col-12">{% if first_term %}
             {% include 'tab.html' %}
             {% else %}
-            <div class="marks">
-                <button class="btn_grade button-add bg_green"><a href="{% url 'marks' studentdetail.pk %}">
-                        <i class="fa fa-plus-circle" aria-hidden="true"> Input Marks</i></a></button>
+            <div class="marks pt_10 pb_10 d-flex justify-content-center">
+                <a href="{% url 'marks' studentdetail.pk %}">
+                        <i class="fa fa-plus-circle" aria-hidden="true"><b> Input Marks</b></i></a>
             </div>
             {% endif %}
         </div>
     </div>
     {% if first_term %}
-    <div class="row">
-        <div class="col-lg-6 col-sm-12">
+    <div class="row" style="margin-bottom: 10px;">
+        <div class="col-lg-6 col-sm-12 font_12">
             <p><b>Subjects with * and students with D grade are considered fail.</b></p>
         </div>
         {% if first_term and second_term and third_term %}
-        <div class="col-lg-6 col-sm-6"><a class="btn_grade btn-height button_size finalbtn_pad"
+        <div class="col-lg-6 col-sm-12 col-md-12"><a class="btn_grade btn-height button_size finalbtn_pad"
                 href="{% url 'result' studentdetail.pk %}">Generate Final Result</a>
-        <a class="btn_grade btn-height button_size"
-                href="{% url 'finalresult' studentdetail.pk %}">View Final Result</a></div>
+            <a class="btn_grade btn-height button_size" href="{% url 'finalresult' studentdetail.pk %}">View Final
+                Result</a></div>
         {% endif %}
     </div>
     {% endif %}

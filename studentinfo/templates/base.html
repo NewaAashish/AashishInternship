@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   {% load static %}
   <meta charset="utf-8">
@@ -18,7 +17,6 @@
   <link
     href="https://fonts.googleapis.com/css?family=Fredoka+One|Montserrat:300,400,700|Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800&display=swap"
     rel="stylesheet">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -35,8 +33,6 @@
   <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/bootstrap.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/bootstrap-grid.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/font-awesome.min.css' %}" />
-
-
   {% endblock extends_css %}
   {% csrf_token %}
   <title>Student Info</title>
@@ -44,13 +40,13 @@
 
 <body>
 
-  <nav class="navbar navbar-expanded nav_bg navbar-dark" id="#nav">
+  <nav class="navbar navbar-expand-lg nav_bg navbar-dark" id="#nav">
     
     <!-- Brand/logo -->
     <a class="navbar-brand nav-link " href="{% url 'index' %}"><i class="fa fa-home" aria-hidden="true"></i></a>
-    <button class="menu-trigger navbar-toggler btn btn-sm bgbutton ">MENU</button>
+    <button class="menu-trigger navbar-toggler btn btn-sm bgbutton muli" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"><i class="fa fa-bars" aria-hidden="true"> MENU</i></button>
     <!-- Links -->
-    <div class="nav-menu collapse navbar-collapse">
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
 
       {% if request.user.is_authenticated %}
@@ -62,13 +58,13 @@
       <li class="nav-item pdr pdl pading_nav">
           <a class="nav-link" href="{% url 'category' %}"><i class="fa fa-search" aria-hidden="true"> Search By Class</i></i></a>
         </li>  {% endif %}
-      <li class="nav-link active muli pading_nav" style="padding-left: 65px"><b>Student Grading System</b></li>
+      <li class="nav-link active muli pading_nav pd_studentgrade"><b>Student Grading System</b></li>
 
-      <li class="nav-item pdr pdl pading_nav" style="padding-left: 9em;">
+      <li class="nav-item pdr pdl pading_nav pd_contact">
         <a class="nav-link" href="{% url 'home' %}"><i class="fa fa-phone-square" aria-hidden="true"> Contact Us</i>
         </a>
       </li>
-      <li class="nav-item pd pading_nav">
+      <li class="nav-item pd_logout pading_nav">
         {% if request.user.is_authenticated %}
         <a class="nav-link" href="{% url 'account_logout' %}"><i class="fa fa-sign-out" aria-hidden="true">
             Logout</i></a>

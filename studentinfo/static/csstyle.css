@@ -52,8 +52,8 @@ h1{
 .muli{
     font-family: 'Muli', sans-serif;
 }
-.pd{
-    padding-left: 10em;
+.pd_logout{
+    padding-left: 14em;
 }
 .pdr{
     padding-right: 4em;
@@ -61,6 +61,18 @@ h1{
 .pdl{
     padding-left: 3em;
 
+}
+.pd_studentgrade{
+    padding-left: 65px;
+}
+.pd_contact{
+    padding-left: 6em;
+}
+.secondterm_pad{
+    padding-left: 6em;
+}
+.thirdterm_pad{
+    padding-left: 13em;
 }
 .hd{
     background-color: #195637; 
@@ -117,13 +129,13 @@ height: 100px;
 .login_bg{
     background-image: url('images/blur.jpg');
     
-    color: white;
+    color: gray;
 }
 .login_bg a{
-    color: white;
+    color: cornflowerblue;
 }
 .sign_up{
-    color: rgb(43, 34, 173) !important;
+    color: cornflowerblue !important;
 }
 .nav_bg{
     background-color: #195637;
@@ -201,7 +213,7 @@ height: 100px;
     height: 180px; 
 
 }
-.menu-trigger{
+#nav .menu-trigger{
     display: none;
 }
 .nav-expanded{
@@ -213,7 +225,7 @@ height: 100px;
 }
 .logout_font{
     margin: 3%;
-    font-size: 40px;
+    font-size: 32px;
 }
 .logo_left{
     left: -18vh;
@@ -229,7 +241,7 @@ height: 100px;
     margin-right: 2px;
 }
 .finalbtn_pad{
-    margin-right: 6.5em;
+    margin-right: 43px;
 }
 .terminal_pad{
     margin-right: 16em;
@@ -237,6 +249,18 @@ height: 100px;
 .final_logo{
     width: 200px;
     height: 200px;
+}
+.carausal_imgsize{
+    width: 350px; 
+    height: 190px;
+}
+.mg_5{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.login_size{
+    height: 500px; 
+    width: 300px;
 }
 
 
@@ -307,7 +331,7 @@ height: 100px;
 	color: white;
 	width: 105px;
 	height: 38px;
-    font-size: 12px;
+    font-size: 16px !important;
 }
 .pading_nav{
  padding: 0px !important;
@@ -340,7 +364,7 @@ height: 100px;
     height: 36px
 }
 .finalbtn_pad{
-    margin-right: 10em;
+    margin-right: 6em !important;
 }
 .terminal_pad{
     margin-right: 3.4em;
@@ -367,11 +391,27 @@ height: 100px;
 .pl_25{
     padding-left: 25px;
 }
+.secondterm_pad{
+    padding-left: 2em;
+}
+.thirdterm_pad{
+    padding-left: 4em;
+}
 .font_12{
     font-size: 12px;
 }
 .font_18px{
     font-size: 18px;
+}
+.login_size{
+    height: 500px; 
+    width: 400px !important;
+}
+.left_pos{
+    left: 3vh;
+}
+.font_32{
+    font-size: 19px !important;
 }
 
 }
@@ -410,6 +450,46 @@ height: 100px;
     .logo_left{
         left: -4vh;
     }
+    .terminal_pad{
+        margin-right: 4em;
+    }
+    .secondterm_pad{
+        padding-left: none;
+    }
+    .thirdterm_pad{
+        padding-left: none;
+    }
+    .detail_table{
+        height: 50px;
+    }
+    .button_size{
+        font-size: 14px;
+        height: 36px
+    }
+    .finalbtn_pad{
+        margin-right: 27em;
+    }
+    .font_32{
+        font-size: 32px;
+    }
+    .final_logo{
+        width: 150px;
+        height: 150px;
+    }
+    .bgbutton{
+        background-color: #FED136 !important;
+        color: white !important;
+        width: 105px;
+        height: 38px;
+        font-size: 16px;
+    }
+    .carausal_imgsize{
+        width: 218px; 
+        height: 160px;
+    }
+    .carausal_position{
+        left: 5vh;
+    }
 
 }
 
@@ -436,6 +516,36 @@ height: 100px;
         }
         .head-text{
             font-size: 18px;
+        }
+        .logo_left{
+            left: -4vh;
+        }
+        .iframe_size{
+            width: 550px; 
+            height: 600px;
+        }
+        .carausal_imgsize{
+            width: 290px; 
+            height: 175px;
+        }
+        .pdr{
+            padding-right: 1em;
+        }
+        .pdl{
+            padding-left: 1em;
+        
+        }
+        .pd_contact{
+            padding-left: 4em;
+        }
+        .pd_logout{
+            padding-left: 8em;
+        }
+        .pd_studentgrade{
+            padding-left: 65px;
+        }
+        .carausal_position{
+            left: 7vh;
         }
 
 }
