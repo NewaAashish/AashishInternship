@@ -143,19 +143,6 @@ class Home(TemplateView):
         context['form'] = ContactForm
         return context
         
-    # def contact_info(self, request):
-    #     if request.method == 'POST':
-    #         form = ContactForm(request.POST)
-    #         if form.is_valid():
-    #             email = form.cleaned_data['email']
-    #             contact = form.cleaned_data['contact'] 
-    #             subject = form.cleaned_data['subject'] 
-    #             msg = "{0} has sent you a new message:\n\n{1}".format(email, form.cleaned_data['msg'])
-    #             send_mail('aashish.mhrzn@gmail.com', contact, subject, msg, ['aashish.mhrzn@gmail.com'],)
-    #             return HttpResponse('Thanks for contacting us!')
-    #     else:
-    #         form = ContactForm()
-    #     return render(request, 'contact.html', {'form': form})
 class Contact(FormView):
     template_name = 'contact.html'
     form_class = ContactForm

@@ -129,13 +129,13 @@ height: 100px;
 .login_bg{
     background-image: url('images/blur.jpg');
     
-    color: gray;
+    color: darkslateblue;
 }
 .login_bg a{
-    color: cornflowerblue;
+    color: #007bff;
 }
 .sign_up{
-    color: cornflowerblue !important;
+    color: #007bff !important;
 }
 .nav_bg{
     background-color: #195637;
@@ -546,6 +546,9 @@ height: 100px;
         }
         .carausal_position{
             left: 7vh;
+        }
+        .detail_tablefont{
+            font-size: 24px !important;
         }
 
 }
